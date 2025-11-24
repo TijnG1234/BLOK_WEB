@@ -1,0 +1,202 @@
+/**********************/
+/* CSS RESET / REMEDY */
+/**********************/
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+
+/************************/
+/* CUSTOM PROPERTIES    */
+/************************/
+:root {
+    --color-text: #111;
+    --color-background: #eee;
+    --color-accent: #0073e6;
+    --color-accent-hover: #005bb5;
+    --color-link-hover: #005eb8;
+}
+
+
+/**********************/
+/* HEADER / NAVIGATIE */
+/**********************/
+.site-header {
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 100;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.main-nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.logo img {
+    height: 45px;
+    display: block;
+}
+
+/* Hamburger knop */
+.menu-toggle {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #222;
+    display: block;
+}
+
+/* Mobiel: menu standaard verborgen */
+.nav-menu {
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+    list-style: none;
+    padding: 1rem 2rem;
+    margin: 0;
+    background: white;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    z-index: 99;
+}
+
+/* Actief menu */
+.nav-menu.active {
+    display: flex;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #222;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.nav-menu a:hover {
+    color: var(--color-link-hover);
+}
+
+.cta {
+    background: var(--color-accent);
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.cta:hover {
+    background: var(--color-accent-hover);
+}
+
+/* Desktop: menu altijd zichtbaar */
+@media (min-width: 768px) {
+    .menu-toggle {
+        display: none;
+    }
+
+    .nav-menu {
+        display: flex;
+        flex-direction: row;
+        gap: 25px;
+        position: static;
+        background: none;
+        box-shadow: none;
+        padding: 0;
+    }
+}
+
+
+/**********************/
+/* GRID / CONTENT BLOK */
+/**********************/
+.wrapper {
+    width: 90%;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+}
+
+.item {
+    background: lightgray;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+
+/************************/
+/* HERO SECTION         */
+/************************/
+.hero-section {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    position: relative;
+    width: 100%;
+}
+
+.hero-content img {
+    width: 100%;
+    height: 400px; /* mobiel: compacte hoogte */
+    object-fit: cover;
+    display: block;
+}
+
+/* Overlay voor leesbaarheid */
+.hero-content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2));
+    z-index: 1;
+}
+
+/* Hero-tekst */
+.hero-content h1 {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: left;
+    max-width: 90%;
+    padding: 0 1rem;
+    z-index: 2;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+    .hero-content h1 {
+        font-size: 2rem;
+        left: 10%;
+    }
+}
+
+
