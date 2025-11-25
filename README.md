@@ -23,8 +23,11 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
 
   #### Je focus:
    surface plane
-
+ 
 </details>
+
+
+
 
 
 ## Je website
@@ -33,15 +36,19 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   <summary>uitwerken voor kick-off werkgroep</summary>
 
   ### Je opdracht:
-  link naar de website die je gaat namaken óf de naam/omschrijving van je eigen ontwerp
+Belangen: https://www.dutchdatacenters.nl/datacenters/wat-is-economisch-belang-datacenters/
+
+
+Contact: https://www.dutchdatacenters.nl/over-ons/contact/
+
 
   #### Screenshot(s) van de eerste pagina (small screen): 
   hier de naam van de pagina  
-  <img src="readme-images/dummy-plaatje.jpg" width="375px" alt="omschrijving van de pagina">
+  <img src="readme-images/economisch-belang-datacenters-.png" width="375px" alt="omschrijving van de pagina">
 
   #### Screenshot(s) van de tweede pagina (small screen):
   hier de naam van de pagina  
-  <img src="readme-images/dummy-plaatje.jpg" width="375px" alt="omschrijving van de pagina">
+  <img src="readme-images/CONTACT.png" width="375px" alt="omschrijving van de pagina">
   
 </details>
 
@@ -58,8 +65,6 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   - De screenreader pakt geanimeerde inlopende tekst niet.
   - 
   - 
-  - 
-  
   
   #### Screenreader
   Het doorlopen van de website met screenreader ging niet helemaal lekker. 
@@ -78,6 +83,7 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   #### Visueel (brillen, contrast, kleurenblind, dark/light). 
   Ookal was het beeld met de brillen op wat moeilijker te zien, kon ik mij nogsteeds vrij gemakkelijk door de site navigeren en kon ik de meeste dingen van mijn website nogwel gemakkelijk zien. 
   Dit komt waarschijnlijk door het duidelijke en goeie gebruik van verschillende kleuren op mijn site die zorgen voor een goed contrast.
+
 </details>
 
 
