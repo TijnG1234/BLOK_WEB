@@ -114,7 +114,14 @@ Contact: https://www.dutchdatacenters.nl/over-ons/contact/
   <summary>uitwerken voor 1<sup>e</sup> voortgang</summary>
 
   ### Stand van zaken
-  hier dit ging goed & dit was lastig (neem ook screenshots op van delen van je website en code)
+  hier dit ging goed & dit was lastig
+  
+  Dit ging goed - Css in combinatie met html coderen ging goed en website zag er presenteerbaar uit hierdoor.
+
+Dit ging niet goed - Enters in mijn website tekst krijgen ( maakte gebruik van
+element en dat is praktisch niet overzichtelijk en handig voor het functioneren van je website). 
+Verder had ik nog niet een goeie verdeling staan van de verschillende sections waaruit mijn website bestaat. 
+Ook had ik gebruik gemaakt van classes en dat was niet bedoeling van de opdracht.
 
 
   ### Agenda voor meeting
@@ -130,9 +137,7 @@ Contact: https://www.dutchdatacenters.nl/over-ons/contact/
   ### Verslag van meeting
   hier na afloop snel de uitkomsten van de meeting vastleggen
 
-  - punt 1
-  - punt 2
-  - nog een punt
+  - 
   - ...
 
 </details>
