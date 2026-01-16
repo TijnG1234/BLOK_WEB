@@ -169,6 +169,7 @@ student 4	Accessibility
 
   - In elke section moet een heading staan.
   - Voeg visuele feedback toe bij formulieren (:valid en :invalid).
+  - Je gebruikt nu een section binnen je footer, dat is niet nodig/verplicht.
 
 </details>
 
@@ -201,6 +202,7 @@ student 4	Accessibility
  - FAQ is uitgewerkt als een toegankelijke accordeon met JavaScript.
  - Website ondersteunt light en dark mode via CSS custom properties.
  - Alle interactieve elementen hebben duidelijke states (hover, focus, open/dicht).
+ - Section uit footer halen na feedback van vorige keer
 
 Ging lastig
 Dit ging lastig / aandachtspunten
