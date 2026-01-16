@@ -443,9 +443,16 @@ main>section:nth-of-type(5)>form>button:hover {
     margin: 0;
   }
   
+  /* lijst reset */
   footer ul {
     list-style: none;
     padding: 0;
+    margin: 0;
+  }
+  
+  /* address reset */
+  footer address {
+    font-style: normal;
   }
   
   /* logo */
@@ -493,15 +500,26 @@ main>section:nth-of-type(5)>form>button:hover {
   /* headings */
   footer h2 {
     font-size: 1.2rem;
+    margin-bottom: 0.5rem; /* iets prettiger ritme */
   }
   
-  /* links */
+  /* links (ook focus zichtbaar voor toetsenbord) */
+  footer a {
+    color: inherit;
+  }
+  
   footer address a {
     color: #cccccc;
     text-decoration: none;
   }
+  
   footer address a:hover {
     text-decoration: underline;
+  }
+  
+  footer a:focus-visible {
+    outline: 0.2rem solid var(--brand);
+    outline-offset: 0.2rem;
   }
   
   /* menu */
@@ -514,6 +532,7 @@ main>section:nth-of-type(5)>form>button:hover {
     text-decoration: none;
     font-weight: normal;
   }
+  
   footer nav a:hover {
     text-decoration: underline;
   }
