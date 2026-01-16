@@ -1,0 +1,64 @@
+/* =========================================================
+   WAT-IS PAGINA (PAGE-SPECIFIC)
+   - hero h1 positie
+   - FAQ sectie + accordeon styling + pijl
+========================================================= */
+
+/* HERO: wat-is pagina gebruikt bottom: 10rem */
+main > section:first-of-type > h1 {
+  bottom: 10rem;
+}
+
+/* -------------------------------
+   FAQ SECTION (MOBIEL)
+--------------------------------- */
+main > section:nth-of-type(3) {
+  padding: 1rem 1.5rem;
+}
+
+main > section:nth-of-type(3) > h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+main > section:nth-of-type(3) > section {
+  margin-bottom: 1rem;
+}
+
+/* FAQ knop + ruimte voor pijl */
+main > section:nth-of-type(3) > section > button {
+  width: 100%;
+  text-align: left;
+  padding: 1rem;
+  padding-right: 3rem; /* ruimte voor pijl */
+  font-size: 1.1rem;
+  border: none;
+  background: var(--muted);
+  color: var(--text);
+  cursor: pointer;
+
+  position: relative;
+}
+
+/* FAQ pijl (visuele affordance) */
+main > section:nth-of-type(3) > section > button::after {
+  content: "▾";
+  position: absolute;
+  right: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.25rem;
+  transition: transform 0.25s ease;
+}
+
+/* open toestand: pijl omhoog */
+main > section:nth-of-type(3) > section > button[aria-expanded="true"]::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+main > section:nth-of-type(3) > section > article {
+  padding: 1rem;
+  border-left: 0.1875rem solid var(--brand);
+  background: var(--muted);
+  margin-top: 1.1rem;
+}

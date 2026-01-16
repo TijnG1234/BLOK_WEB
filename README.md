@@ -63,8 +63,6 @@ Contact: https://www.dutchdatacenters.nl/over-ons/contact/
   Lijst met je bevindingen die in de test naar voren kwamen: 
   - De screenreader kan afbeeldingen niet lezen.
   - De screenreader pakt geanimeerde inlopende tekst niet.
-  - 
-  - 
   
   #### Screenreader
   Het doorlopen van de website met screenreader ging niet helemaal lekker. 
@@ -113,10 +111,13 @@ Contact: https://www.dutchdatacenters.nl/over-ons/contact/
 <details>
   <summary>uitwerken voor 1<sup>e</sup> voortgang</summary>
 
-  ### Stand van zaken
+### Stand van zaken
   hier dit ging goed & dit was lastig
   
-  Dit ging goed - Css in combinatie met html coderen ging goed en website zag er presenteerbaar uit hierdoor.
+Dit ging goed
+- Het opzetten van de basisstructuur in HTML en het toepassen van CSS ging goed.
+- Ik kreeg de website visueel al redelijk overeenkomend met het voorbeeld.
+- Ik begon te begrijpen hoe HTML en CSS samenwerken op mijn website.
 
 Dit ging niet goed - Enters in mijn website tekst krijgen ( maakte gebruik van
 element en dat is praktisch niet overzichtelijk en handig voor het functioneren van je website). 
@@ -124,25 +125,22 @@ Verder had ik nog niet een goeie verdeling staan van de verschillende sections w
 Ook had ik gebruik gemaakt van classes en dat was niet bedoeling van de opdracht.
 
 
-  ### Agenda voor meeting
+### Agenda voor meeting
   samen met je groepje opstellen
 
-  | student 1      | student 2          | student 3    | student 4        |
-  | ---            | ---                | ---          | ---              |
-  | dit bespreken  | en dit             | en ik dit    | en dan ik dat    |
-  | en dat ook nog | dit als er tijd is | nog een punt | dit wil ik zeker |
-  | ...            | ...                | ...          | ...              |
-
+student 1 (ik)	HTML-structuur & semantiek
+student 2	CSS selectors
+student 3	Nth-of-type
+student 4	CSS Diner / algemene feedback
 
   ### Verslag van meeting
   hier na afloop snel de uitkomsten van de meeting vastleggen
 
-  - 
-  - ...
+ - Advies gekregen om <br> niet te gebruiken voor layout.
+ - Feedback gekregen om meer met HTML-structuur en minder met classes te werken.
+ - Introductie gekregen in nth-of-type selectors.
 
 </details>
-
-
 
 
 
@@ -152,26 +150,25 @@ Ook had ik gebruik gemaakt van classes en dat was niet bedoeling van de opdracht
   <summary>uitwerken voor 2<sup>e</sup> voortgang</summary>
 
   ### Stand van zaken
-  hier dit ging goed & dit was lastig (neem ook screenshots op van delen van je website en code)
+Dit ging goed
+- De website is volledig mobile first opgebouwd.
+- CSS is opgeschoond en maakt geen gebruik meer van classes.
+- Navigatie werkt met JavaScript en is toegankelijk (aria-expanded, hidden).
 
+Dit ging lastig
+- Formuliervalidatie was nog niet duidelijk zichtbaar voor de gebruiker.
 
   ### Agenda voor meeting
-  samen met je groepje opstellen
-
-  | student 1      | student 2          | student 3    | student 4        |
-  | ---            | ---                | ---          | ---              |
-  | dit bespreken  | en dit             | en ik dit    | en dan ik dat    |
-  | en dat ook nog | dit als er tijd is | nog een punt | dit wil ik zeker |
-  | ...            | ...                | ...          | ...              |
-
+student 1 (ik)	Gebruik/ indeling sections en semntiek
+student 2	...
+student 3	Mobile first aanpak
+student 4	Accessibility
 
   ### Verslag van meeting
   hier na afloop snel de uitkomsten van de meeting vastleggen
 
-  - punt 1
-  - punt 2
-  - nog een punt
-- ...
+  - In elke section moet een heading staan.
+  - Voeg visuele feedback toe bij formulieren (:valid en :invalid).
 
 </details>
 
@@ -199,26 +196,33 @@ Ook had ik gebruik gemaakt van classes en dat was niet bedoeling van de opdracht
   <summary>uitwerken voor 3<sup>e</sup> voortgang</summary>
 
   ### Stand van zaken
-  hier dit ging goed & dit was lastig (neem ook screenshots op van delen van je website en code)
+ Dit ging goed
+ - Navigatie is toegankelijk (toetsenbord, screenreader, aria).
+ - FAQ is uitgewerkt als een toegankelijke accordeon met JavaScript.
+ - Website ondersteunt light en dark mode via CSS custom properties.
+ - Alle interactieve elementen hebben duidelijke states (hover, focus, open/dicht).
 
+Ging lastig
+Dit ging lastig / aandachtspunten
+Niet echt iets wat specifiek lastig ging
 
   ### Agenda voor meeting
   samen met je groepje opstellen
 
-  | student 1      | student 2          | student 3    | student 4        |
-  | ---            | ---                | ---          | ---              |
-  | dit bespreken  | en dit             | en ik dit    | en dan ik dat    |
-  | en dat ook nog | dit als er tijd is | nog een punt | dit wil ik zeker |
-  | ...            | ...                | ...          | ...              |
-
+student 1 (ik)	Toegankelijkheid & ARIA
+student 2	Contrast & WCAG
+student 3	JavaScript interacties
+student 4	Eindcontrole
 
   ### Verslag van meeting
   hier na afloop snel de uitkomsten van de meeting vastleggen
 
-  - punt 1
-  - punt 2
-  - nog een punt
-  - ...
+  - Betere toetsenbordbediening dan originele website
+  - Duidelijke focus-states (:focus-visible).
+  - Logische heading-structuur.
+  - Minder visuele ruis en duidelijkere interacties.
+  - Aandachtspunt: contrast checken
+  - Advies om code goed te kunnen toelichten i.p.v. extra features toevoegen.
 
 </details>
 

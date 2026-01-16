@@ -1,0 +1,487 @@
+/* -------------------------------
+   THEMA (CUSTOM PROPERTIES)
+   - Standaard: light
+   - Dark alleen via body[data-theme="dark"]
+--------------------------------- */
+:root {
+  --bg: #ffffff;
+  --text: #222222;
+  --surface: #ffffff;
+  --muted: #f2f2f2;
+  --border: #dddddd;
+  --brand: #0078ff;
+
+  --footer-bg: #000000;
+  --footer-text: #ffffff;
+
+  --form-bg: #003366;
+  --form-text: #ffffff;
+  --form-border: #cccccc;
+  --form-button-bg: #0ed228;
+  --form-button-hover: #005fcc;
+}
+
+/* Dark mode */
+body[data-theme="dark"] {
+  --bg: #0f1115;
+  --text: #e8e8e8;
+  --surface: #141823;
+  --muted: #1e2533;
+  --border: #2a3242;
+  --brand: #4ea1ff;
+
+  --footer-bg: #000000;
+  --footer-text: #ffffff;
+
+  --form-bg: #06244a;
+  --form-text: #ffffff;
+  --form-border: #3a4760;
+  --form-button-bg: #1bdc35;
+  --form-button-hover: #0aa4ff;
+}
+
+/* -------------------------------
+     ALGEMEEN
+  --------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+}
+
+/* media veilig */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* focus (toegankelijkheid) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 0.2rem solid var(--brand);
+  outline-offset: 0.2rem;
+}
+
+/* -------------------------------
+   FORM VALIDATION STATES (VALID/INVALID)
+--------------------------------- */
+input:valid {
+  border: 2px solid green;
+}
+
+input:invalid {
+  border: 2px solid red;
+}
+
+/* -------------------------------
+     HEADER + NAVIGATIE
+  --------------------------------- */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--surface);
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  position: relative;
+}
+
+header nav>a img {
+  width: 9.375rem;
+  margin-top: 0.5rem;
+}
+
+header nav>button {
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  width: 3rem;
+  height: 3rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 0;
+  /* verbergt &#9776; volledig */
+  padding: 0;
+}
+
+header nav>button::before {
+  content: "☰";
+
+  width: 2rem;
+  height: 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--text);
+
+  transform: translateX(0.70rem);
+  /* 👈 iets naar rechts */
+}
+
+
+header nav>button[aria-expanded="true"]::before {
+  content: "✕";
+  font-size: 1.6rem;
+}
+
+/* mobiel menu */
+header nav>ul {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: var(--surface);
+  border-top: 0.0625rem solid var(--border);
+  list-style: none;
+  padding: 0.5rem 0;
+}
+
+header nav>ul[hidden] {
+  display: none;
+}
+
+header nav>ul:not([hidden]) {
+  display: flex;
+  flex-direction: column;
+}
+
+header nav>ul>li>a,
+header nav>ul>li>button {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 2rem;
+  text-align: left;
+  font-size: 1rem;
+  background: none;
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+}
+
+/* Hover feedback voor menu-items */
+header nav>ul>li>a:hover,
+header nav>ul>li>button:hover {
+  background: var(--muted);
+}
+
+header nav>ul>li>a {
+  text-decoration: none;
+  border-bottom: 0.0625rem solid var(--border);
+}
+
+header nav>ul>li>button {
+  font-weight: 600;
+  border-bottom: 0.0625rem solid var(--border);
+}
+
+/* CTA link */
+header nav>ul>li:last-of-type>a {
+  width: calc(100% - 4rem);
+  margin: 0.5rem 2rem 0;
+  padding: 0.5rem 1rem;
+  border: 0.125rem solid var(--brand);
+  border-radius: 0.4rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* -------------------------------
+     HERO
+  --------------------------------- */
+main>section:first-of-type {
+  position: relative;
+}
+
+main>section:first-of-type>img {
+  width: 100%;
+  height: 28rem;
+  object-fit: cover;
+}
+
+main>section:first-of-type::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 70%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 1), transparent);
+}
+
+main>section:first-of-type>h1 {
+  position: absolute;
+  left: 2rem;
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 600;
+  max-width: 60%;
+  line-height: 1.2;
+  text-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+/* -------------------------------
+     INTRO
+  --------------------------------- */
+main>section:nth-of-type(2) {
+  padding: 2rem 1.5rem;
+}
+
+main>section:nth-of-type(2)>h2 {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+main>section:nth-of-type(2)>p:first-of-type {
+  font-weight: bold;
+}
+
+main>section:nth-of-type(2)>p {
+  margin-bottom: 1.2rem;
+  font-size: 1.1rem;
+}
+
+/* -------------------------------
+     FOTO SECTIE
+  --------------------------------- */
+main>section:nth-of-type(4) {
+  padding: 2rem 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+main>section:nth-of-type(4)>h2 {
+  font-size: 1.4rem;
+}
+
+/* FOTO KAARTEN: caption boven, foto + overlay overlappen */
+main>section:nth-of-type(4) figure {
+  display: grid;
+  grid-template-columns: 1fr;
+  /* 👈 belangrijk: maar 1 kolom */
+  grid-template-rows: auto 1fr;
+  gap: 0.5rem;
+}
+
+/* foto in rij 2, kolom 1 */
+main>section:nth-of-type(4) figure img {
+  grid-column: 1;
+  /* 👈 zelfde kolom als overlay */
+  grid-row: 2;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* overlay in exact dezelfde cel als de foto */
+main>section:nth-of-type(4) figure::after {
+  content: "Lees meer";
+  grid-column: 1;
+  /* zelfde kolom */
+  grid-row: 2;
+  /* zelfde rij */
+
+  place-self: stretch;
+  /* vult hele foto-cel */
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+main>section:nth-of-type(4) figure:hover::after {
+  opacity: 1;
+}
+
+/* underline ook als je over de foto hovert */
+main>section:nth-of-type(4) figure:hover figcaption::after {
+  width: 40%;
+}
+
+main>section:nth-of-type(4) figcaption {
+  font-weight: bold;
+  position: relative;
+  padding-bottom: 0.3rem;
+}
+
+main>section:nth-of-type(4) figcaption::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 0.1875rem;
+  width: 100%;
+  transition: width 0.3s ease;
+}
+
+main>section:nth-of-type(4) figcaption:hover::after {
+  width: 40%;
+}
+
+main>section:nth-of-type(4)>figure:nth-of-type(1)>figcaption::after {
+  background-color: #e63946;
+}
+
+main>section:nth-of-type(4)>figure:nth-of-type(2)>figcaption::after {
+  background-color: #2a9d8f;
+}
+
+main>section:nth-of-type(4)>figure:nth-of-type(3)>figcaption::after {
+  background-color: #f4a261;
+}
+
+/* -------------------------------
+   NIEUWSBRIEF SECTION (MOBIEL)
+--------------------------------- */
+main>section:nth-of-type(5) {
+  padding: 2rem 1.5rem;
+  background: var(--form-bg);
+}
+
+main>section:nth-of-type(5)>h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  color: var(--form-text);
+}
+
+main>section:nth-of-type(5)>form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+main>section:nth-of-type(5)>form>label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  color: var(--form-text);
+}
+
+main>section:nth-of-type(5)>form>label>input {
+  width: 100%;
+  padding: 0.7rem;
+  border: 0.0625rem solid var(--form-border);
+  font-size: 1rem;
+}
+
+main>section:nth-of-type(5)>form>button {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  background: var(--form-button-bg);
+  color: var(--form-text);
+  border: none;
+  cursor: pointer;
+}
+
+main>section:nth-of-type(5)>form>button:hover {
+  background: var(--form-button-hover);
+}
+
+/* ----------------------------
+     FOOTER (MOBIEL)
+  -------------------------------- */
+footer {
+  background-color: var(--footer-bg);
+  color: var(--footer-text);
+  padding: 3rem 1.5rem;
+}
+
+footer>section {
+  max-width: 75rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+footer figure img {
+  width: 11.25rem;
+}
+
+footer h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+footer p {
+  margin: 0;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+footer address {
+  font-style: normal;
+}
+
+footer address a {
+  color: #cccccc;
+  text-decoration: none;
+}
+
+footer address a:hover {
+  text-decoration: underline;
+}
+
+footer>section>p>a {
+  color: var(--footer-text);
+  text-decoration: underline;
+}
+
+footer>section>p>a:hover {
+  text-decoration: none;
+}
+
+footer nav li {
+  margin-bottom: 0.5rem;
+}
+
+footer nav a {
+  color: var(--footer-text);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer nav a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,100 @@
+/* =========================================================
+   OVER ONS PAGINA (PAGE-SPECIFIC)
+   - hero h1 positie
+   - contact / over-ons sectie (vervangt FAQ)
+========================================================= */
+
+/* HERO: andere positie dan wat-is pagina */
+main > section:first-of-type > h1 {
+    bottom: 15rem;
+  }
+  
+  /* -------------------------------
+     OVER ONS / CONTACT SECTION
+     (zelfde plek als FAQ: nth-of-type(3))
+  --------------------------------- */
+  main > section:nth-of-type(3) {
+    padding: 1rem 1.5rem;
+  }
+  
+  main > section:nth-of-type(3) > h2 {
+    margin-bottom: 1.25rem;
+    font-size: 1.5rem;
+  }
+  
+  /* subsecties onder elkaar */
+  main > section:nth-of-type(3) > section {
+    margin-bottom: 1.5rem;
+  }
+  
+  main > section:nth-of-type(3) > section > h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  /* logo */
+  main > section:nth-of-type(3) figure {
+    margin: 0 0 0.75rem;
+  }
+  
+  main > section:nth-of-type(3) figure img {
+    width: 14rem;
+    height: auto;
+  }
+  
+  /* address netjes */
+  main > section:nth-of-type(3) address {
+    font-style: normal;
+    line-height: 1.6;
+  }
+  
+  /* links */
+  main > section:nth-of-type(3) a {
+    color: var(--brand);
+  }
+  
+  /* -------------------------------
+     FORMULIER (indien aanwezig)
+  --------------------------------- */
+  main > section:nth-of-type(3) form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+  
+  main > section:nth-of-type(3) label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-weight: 600;
+  }
+  
+  main > section:nth-of-type(3) input,
+  main > section:nth-of-type(3) textarea {
+    width: 100%;
+    padding: 0.85rem;
+    border: 0.0625rem solid var(--border);
+   
+    font: inherit;
+    background: var(--surface);
+    color: var(--text);
+  }
+  
+  main > section:nth-of-type(3) textarea {
+    resize: vertical;
+  }
+  
+  main > section:nth-of-type(3) form > button {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    border: none;
+    background: var(--brand);
+    color: #ffffff;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  
+  main > section:nth-of-type(3) form > button:hover {
+    filter: brightness(0.95);
+  }
+  
