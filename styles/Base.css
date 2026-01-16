@@ -418,122 +418,101 @@ main>section:nth-of-type(5)>form>button:hover {
      FOOTER (MOBIEL)
   -------------------------------- */
 
-  footer {
-    background-color: var(--footer-bg);
-    color: var(--footer-text);
-    padding: 3rem 1.5rem;
-  
-    /* full-width achtergrond, gecentreerde content */
-    display: grid;
-    grid-template-columns: 1fr min(75rem, 100%) 1fr;
-  }
-  
-  /* alle directe children in de middenkolom */
-  footer > * {
-    grid-column: 2;
-  }
-  
-  /* reset margins zodat we spacing zelf bepalen */
-  footer figure,
-  footer h2,
-  footer p,
-  footer ul,
-  footer address,
-  footer nav {
-    margin: 0;
-  }
-  
-  /* lijst reset */
-  footer ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  /* address reset */
-  footer address {
-    font-style: normal;
-  }
-  
-  /* logo */
-  footer figure img {
-    width: 11.25rem;
-    height: auto;
-    display: block;
-  }
-  
-  /* basis spacing tussen blokken */
-  footer > * + * {
-    margin-top: 1rem;
-  }
-  
-  /* extra ruimte direct NA het logo */
-  footer figure + * {
-    margin-top: 1.3rem;
-  }
-  
-  /* extra ruimte tussen secties (naar een nieuw kopje) */
-  footer p + h2,
-  footer ul + h2,
-  footer address + h2,
-  footer nav + h2 {
-    margin-top: 2rem;
-  }
-  
-  /* kopje hoort dichter bij de content eronder */
-  footer h2 + p,
-  footer h2 + address,
-  footer h2 + nav {
-    margin-top: 0.5rem;
-  }
-  
-  /* Proud member of -> lijst */
-  footer > p + ul {
-    margin-top: 0.75rem;
-  }
-  
-  /* Contact regels onder elkaar */
-  footer address p + p {
-    margin-top: 0.5rem;
-  }
-  
-  /* headings */
-  footer h2 {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem; /* iets prettiger ritme */
-  }
-  
-  /* links (ook focus zichtbaar voor toetsenbord) */
-  footer a {
-    color: inherit;
-  }
-  
-  footer address a {
-    color: #cccccc;
-    text-decoration: none;
-  }
-  
-  footer address a:hover {
-    text-decoration: underline;
-  }
-  
-  footer a:focus-visible {
-    outline: 0.2rem solid var(--brand);
-    outline-offset: 0.2rem;
-  }
-  
-  /* menu */
-  footer nav li + li {
-    margin-top: 0.25rem;
-  }
-  
-  footer nav a {
-    color: var(--footer-text);
-    text-decoration: none;
-    font-weight: normal;
-  }
-  
-  footer nav a:hover {
-    text-decoration: underline;
-  }
-  
+  /* ----------------------------
+   FOOTER (MOBIEL)
+-------------------------------- */
+
+footer {
+  background-color: var(--footer-bg);
+  color: var(--footer-text);
+  padding: 3rem 1.5rem;
+
+  /* BELANGRIJK:
+     Geen grid-centering met max-width,
+     zodat footer exact dezelfde uitlijning heeft als main (padding only). */
+}
+
+/* reset margins zodat we spacing zelf bepalen */
+footer figure,
+footer h2,
+footer p,
+footer ul,
+footer address,
+footer nav {
+  margin: 0;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* logo */
+footer figure img {
+  width: 11.25rem;
+  height: auto;
+  display: block;
+}
+
+/* basis spacing tussen blokken */
+footer > * + * {
+  margin-top: 1rem;
+}
+
+/* extra ruimte direct NA het logo */
+footer figure + * {
+  margin-top: 1.3rem;
+}
+
+/* extra ruimte tussen secties (naar een nieuw kopje) */
+footer p + h2,
+footer ul + h2,
+footer address + h2,
+footer nav + h2 {
+  margin-top: 2rem;
+}
+
+/* kopje hoort dichter bij de content eronder */
+footer h2 + p,
+footer h2 + address,
+footer h2 + nav {
+  margin-top: 0.5rem;
+}
+
+/* Proud member of -> lijst */
+footer > p + ul {
+  margin-top: 0.75rem;
+}
+
+/* Contact regels onder elkaar */
+footer address p + p {
+  margin-top: 0.5rem;
+}
+
+/* headings */
+footer h2 {
+  font-size: 1.2rem;
+}
+
+/* links */
+footer address a {
+  color: #cccccc;
+  text-decoration: none;
+}
+footer address a:hover {
+  text-decoration: underline;
+}
+
+/* menu */
+footer nav li + li {
+  margin-top: 0.25rem;
+}
+
+footer nav a {
+  color: var(--footer-text);
+  text-decoration: none;
+  font-weight: normal;
+}
+footer nav a:hover {
+  text-decoration: underline;
+}
