@@ -21,6 +21,19 @@ main > section:nth-of-type(3) > h2 {
   font-size: 1.5rem;
 }
 
+/* FAQ h3 headings semantisch behouden, visueel verbergen */
+main > section:nth-of-type(3) > section > h3 {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+
 main > section:nth-of-type(3) > section {
   margin-bottom: 1rem;
 }

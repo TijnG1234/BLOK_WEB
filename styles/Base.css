@@ -7,7 +7,7 @@
   --bg: #ffffff;
   --text: #222222;
   --surface: #ffffff;
-  --muted: #f2f2f2;
+  --muted: #ECF2F6;
   --border: #dddddd;
   --brand: #0078ff;
 
@@ -296,7 +296,7 @@ main > section:nth-of-type(2) > p:first-of-type {
 }
 
 main > section:nth-of-type(2) > p {
-  margin-bottom: 1.2rem;
+  margin-bottom: 0.7rem;
   font-size: 1.1rem;
 }
 
