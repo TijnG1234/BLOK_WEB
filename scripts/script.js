@@ -26,7 +26,7 @@ function setMenu(open) {
   menuButton.setAttribute("aria-expanded", String(open));
   menu.hidden = !open;
 
-  // ✅ website-state: menu open/dicht
+  // website-state: menu open/dicht
   document.body.toggleAttribute("data-menu-open", open);
 }
 
@@ -36,15 +36,15 @@ function setMenu(open) {
 if (menuButton && menu) {
   /*
     Progressive enhancement:
-    - HTML basis: menu staat zichtbaar (geen hidden in HTML)
-    - JS: mag 'm bij load sluiten
+    - HTML basis: menu is zichtbaar
+    - hamburgerknop is verborgen
+    - JS neemt over en maakt menu inklapbaar
   */
 
-  // Forceer basisstaat zichtbaar voordat we het 'enhancen'
-  // (handig als iemand per ongeluk toch nog hidden in HTML liet staan)
-  menu.hidden = false;
+  // hamburgerknop pas tonen als JS actief is
+  menuButton.hidden = false;
 
-  // Menu begint gesloten zodra JS draait
+  // menu start gesloten zodra JS draait
   setMenu(false);
 
   // Hamburgerknop
@@ -109,48 +109,7 @@ if (themeButton) {
     localStorage.setItem("theme", nextTheme);
     applyTheme(nextTheme);
 
-    // menu sluiten op mobiel (best effort)
+    // menu sluiten op mobiel
     setMenu(false);
   });
-}
-
-/* =========================================================
-   FAQ ACCORDEON (A11Y + PROGRESSIVE ENHANCEMENT)
-   - button aria-expanded
-   - panel hidden (door JS gezet, niet in HTML)
-   - werkt alleen op pagina’s waar FAQ bestaat
-========================================================= */
-
-const faqSection = document.querySelector("main > section:nth-of-type(3)");
-
-if (faqSection) {
-  // Jij gebruikt items als sections binnen de FAQ-section
-  const faqItems = faqSection.querySelectorAll(":scope > section");
-
-  const hasAccordion = Array.from(faqItems).some((item) => {
-    return item.querySelector("button") && item.querySelector("article");
-  });
-
-  if (hasAccordion) {
-    faqItems.forEach((item) => {
-      const button = item.querySelector("button");
-      const panel = item.querySelector("article");
-
-      if (!button || !panel) return;
-
-      /*
-        Progressive enhancement:
-        - HTML basis: panel is zichtbaar (geen hidden in HTML)
-        - JS: zet panel bij load dicht
-      */
-      panel.hidden = true;
-      button.setAttribute("aria-expanded", "false");
-
-      button.addEventListener("click", () => {
-        const isOpen = button.getAttribute("aria-expanded") === "true";
-        button.setAttribute("aria-expanded", String(!isOpen));
-        panel.hidden = isOpen;
-      });
-    });
-  }
 }

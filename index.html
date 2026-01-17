@@ -24,19 +24,19 @@
       </a>
 
       <!-- Hamburger knop -->
-      <button type="button" aria-label="Menu openen" aria-expanded="false">
+      <button type="button" aria-label="Menu openen" aria-expanded="false" hidden>
         &#9776;
       </button>
 
       <!-- Hamburger menu -->
-      <ul hidden>
+      <ul>
         <li>
           <button type="button" aria-label="Thema wisselen" aria-pressed="false" data-theme-toggle>
             Licht / donker thema
           </button>
         </li>
 
-        <li><a href="Overons.html">Wat is</a></li>
+        <li><a href="index.html">Wat is</a></li>
         <li><a href="Overons.html">Cijfers</a></li>
         <li><a href="Overons.html">Posities</a></li>
         <li><a href="Overons.html">Nieuws</a></li>
@@ -83,12 +83,9 @@
     <section>
       <h2>Veelgestelde vragen</h2>
 
-      <section>
-        <h3>Werkgelegenheid</h3>
-        <button type="button" aria-expanded="false">
-          In hoeverre dragen datacenters bij aan de werkgelegenheid?
-        </button>
-        <article hidden>
+      <details>
+        <summary>In hoeverre dragen datacenters bij aan de werkgelegenheid?</summary>
+        <article>
           <p>Datacenters genereren enorm veel werkgelegenheid, omdat ze onderdeel uitmaken van een unieke logistieke
             keten van allerlei bedrijven, van internet exchanges en hosting- en cloud providers, tot adviesbureaus en
             glasvezelaanbieders. In totaal zijn er landelijk zo’n 5.460 FTE direct in de datacenters aan het werk. Naast
@@ -100,14 +97,11 @@
             jaar duren en zijn er ruim duizend medewerkers dagelijks met de bouw aan de slag. Voor meer informatie over
             datacenters en werkgelegenheid, zie onze posities.</p>
         </article>
-      </section>
+      </details>
 
-      <section>
-        <h3>Digitale mainport</h3>
-        <button type="button" aria-expanded="false">
-          Wat wordt bedoeld met de digitale mainport?
-        </button>
-        <article hidden>
+      <details>
+        <summary>Wat wordt bedoeld met de digitale mainport?</summary>
+        <article>
           <p>Onze Nederlandse digitale datahub is één van de belangrijkste in de wereld. Wij zijn net zoals de haven van
             Rotterdam en de luchthaven Schiphol, de internationale toegangspoort naar Europa: the Digital Gateway to
             Europe. Bedrijven uit de hele wereld zien Nederland als het distributiepunt van data en als belangrijke
@@ -128,14 +122,11 @@
             biedt bedrijven een perfect klimaat om succesvol te concurreren in Europa. En met een aantrekkelijke
             kwaliteit van leven als bonus.</p>
         </article>
-      </section>
+      </details>
 
-      <section>
-        <h3>Nationale datacenters</h3>
-        <button type="button" aria-expanded="false">
-          Wat is het belang van nationale datacenters?
-        </button>
-        <article hidden>
+      <details>
+        <summary>Wat is het belang van nationale datacenters?</summary>
+        <article>
           <p>Overal in Nederland is binnen een straal van dertig kilometer een professioneel datacenter te vinden. Al
             deze nationale datacenters hebben een uniek ecosysteem en een uitstekende verbinding met de regio Amsterdam
             met weinig latency (snelheid van de verbinding). Nationale datacenters bieden een platform aan organisaties
@@ -151,7 +142,7 @@
             datacenters die in de wereldwijde hubs gevestigd zijn. Alle Nederlandse datacenters samen vormen daarmee een
             unieke logistieke, toekomstbestendige hub.</p>
         </article>
-      </section>
+      </details>
     </section>
 
     <!-- FOTO SECTIE -->

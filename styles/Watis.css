@@ -1,7 +1,7 @@
 /* =========================================================
    WAT-IS PAGINA (PAGE-SPECIFIC)
    - hero h1 positie
-   - FAQ sectie + accordeon styling + pijl
+   - FAQ sectie + details styling + pijl
 ========================================================= */
 
 /* HERO: wat-is pagina gebruikt bottom: 10rem */
@@ -21,40 +21,43 @@ main > section:nth-of-type(3) > h2 {
   font-size: 1.5rem;
 }
 
-/* FAQ h3 headings semantisch behouden, visueel verbergen */
-main > section:nth-of-type(3) > section > h3 {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
-  border: 0;
-}
-
-
-main > section:nth-of-type(3) > section {
+/* details items */
+main > section:nth-of-type(3) > details {
   margin-bottom: 1rem;
+  background: var(--muted);
 }
 
-/* FAQ knop + ruimte voor pijl */
-main > section:nth-of-type(3) > section > button {
+/* summary = klikbare vraag (vervangt button styling) */
+main > section:nth-of-type(3) > details > summary {
   width: 100%;
   text-align: left;
+
   padding: 1rem;
   padding-right: 3rem; /* ruimte voor pijl */
+
   font-size: 1.1rem;
-  border: none;
   background: var(--muted);
   color: var(--text);
   cursor: pointer;
 
   position: relative;
+
+  /* default marker (driehoek) weg waar mogelijk */
+  list-style: none;
+
+  /* gelijkere blokhoogte */
+  min-height: 4.5rem;
+  display: flex;
+  align-items: center;
+}
+
+/* default marker weg (Safari/Chrome) */
+main > section:nth-of-type(3) > details > summary::-webkit-details-marker {
+  display: none;
 }
 
 /* FAQ pijl (visuele affordance) */
-main > section:nth-of-type(3) > section > button::after {
+main > section:nth-of-type(3) > details > summary::after {
   content: "▾";
   position: absolute;
   right: 1.25rem;
@@ -65,13 +68,20 @@ main > section:nth-of-type(3) > section > button::after {
 }
 
 /* open toestand: pijl omhoog */
-main > section:nth-of-type(3) > section > button[aria-expanded="true"]::after {
+main > section:nth-of-type(3) > details[open] > summary::after {
   transform: translateY(-50%) rotate(180deg);
 }
 
-main > section:nth-of-type(3) > section > article {
+/* panel / inhoud */
+main > section:nth-of-type(3) > details > article {
   padding: 1rem;
   border-left: 0.1875rem solid var(--brand);
   background: var(--muted);
   margin-top: 1.1rem;
+}
+
+/* focus zichtbaar bij tabben */
+main > section:nth-of-type(3) > details > summary:focus-visible {
+  outline: 0.2rem solid var(--brand);
+  outline-offset: 0.2rem;
 }

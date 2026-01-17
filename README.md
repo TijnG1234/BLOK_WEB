@@ -179,11 +179,22 @@ student 4	Accessibility
 
 ## Toegankelijkheidstest 2/2 (week 4)
 
-<details>
-  <summary>uitwerken na test in 9<sup>e</sup> werkgroep</summary>
+<details> <summary>uitwerken na test in 9<sup>e</sup> werkgroep</summary>
+Bevindingen
 
-  ### Bevindingen
-  Lijst met je bevindingen die in de test naar voren kwamen (geef ook aan wat er verbeterd is):
+- Tijdens de tweede toegankelijkheidstest is de website getest met toetsenbordnavigatie, met JavaScript uitgeschakeld en door vergelijking met de originele website.
+
+- Het hamburgermenu was bedienbaar, maar de open/dicht-status was niet duidelijk voor screenreaders. Dit is opgelost door aria-expanded toe te voegen en het menu volledig met toetsenbord te laten werken (inclusief sluiten met Escape).
+
+- Bij het testen zonder JavaScript bleek dat sommige content verborgen was. Dit is aangepast door hidden niet meer in de HTML te gebruiken, maar alleen via JavaScript toe te passen, zodat alle content zichtbaar blijft zonder JS.
+
+- De FAQ werkte visueel goed, maar was nog niet volledig toegankelijk. Door aria-expanded toe te voegen en de content via hidden te tonen/verbergen is de FAQ nu ook bruikbaar met toetsenbord en screenreader.
+
+- -Sommige headings waren visueel storend maar wel nodig voor de structuur. Deze zijn semantisch behouden en visueel verborgen met CSS.
+
+- Animaties bleken mogelijk hinderlijk voor sommige gebruikers. Daarom is ondersteuning voor prefers-reduced-motion toegevoegd.
+
+- Bij vergelijking met de originele website viel op dat het fade-in navigatiemenu de volledige pagina overneemt en lastig te sluiten is. In mijn uitwerking is daarom gekozen voor een simpeler menu met meerdere sluitopties, wat de toegankelijkheid vergroot. Huidige originele website fade-in nav menu vont ik te massaal en neemt gelijk de hele pagina in, ook niet makkelijk en snelle optie om er weer uit te kunnen behalve een heel klein kruisje boven, maar niet de optie om weer op de pagina zelf te klikken aangezien die verborgen is onder het hele menu. Dus je kan ook niet echt makkelijk terug, ik zelf vond dit minder toegankelijk en heb daarom gekozen voor een simpeler menu die de gebruiker ook nog de optie geeft om weer op de pagina zelf ter kunnen klikken makkelijk als hij de nav weer wil sluiten en zo geef je de gebruiker makkelijk meerdere optie inplaats van een klein kruisje boven aan de pagina.
 
 </details>
 
