@@ -56,6 +56,11 @@ body {
   background: var(--bg);
 }
 
+/* Website-state: menu open */
+body[data-menu-open] {
+  overflow: hidden;
+}
+
 /* media veilig */
 img {
   max-width: 100%;
@@ -72,15 +77,31 @@ textarea:focus-visible {
   outline-offset: 0.2rem;
 }
 
-/* -------------------------------
-   FORM VALIDATION STATES (VALID/INVALID)
---------------------------------- */
-input:valid {
-  border: 2px solid green;
+/* Visually hidden label (voor zoekveld in menu) */
+[data-sr-only] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
 }
 
-input:invalid {
+/* -------------------------------
+   FORM VALIDATION STATES (VALID/INVALID)
+   - alleen voor required velden (anders wordt search meteen "valid")
+--------------------------------- */
+
+/* Alleen feedback geven als gebruiker iets heeft ingevuld */
+input[required]:focus:invalid {
   border: 2px solid red;
+}
+
+input[required]:focus:valid {
+  border: 2px solid green;
 }
 
 /* -------------------------------
@@ -102,12 +123,12 @@ header nav {
   position: relative;
 }
 
-header nav>a img {
+header nav > a img {
   width: 9.375rem;
   margin-top: 0.5rem;
 }
 
-header nav>button {
+header nav > button {
   background: none;
   border: none;
   cursor: pointer;
@@ -120,11 +141,10 @@ header nav>button {
   justify-content: center;
 
   font-size: 0;
-  /* verbergt &#9776; volledig */
   padding: 0;
 }
 
-header nav>button::before {
+header nav > button::before {
   content: "☰";
 
   width: 2rem;
@@ -139,17 +159,15 @@ header nav>button::before {
   color: var(--text);
 
   transform: translateX(0.70rem);
-  /* 👈 iets naar rechts */
 }
 
-
-header nav>button[aria-expanded="true"]::before {
+header nav > button[aria-expanded="true"]::before {
   content: "✕";
   font-size: 1.6rem;
 }
 
 /* mobiel menu */
-header nav>ul {
+header nav > ul {
   position: absolute;
   top: 100%;
   left: 0;
@@ -160,17 +178,17 @@ header nav>ul {
   padding: 0.5rem 0;
 }
 
-header nav>ul[hidden] {
+header nav > ul[hidden] {
   display: none;
 }
 
-header nav>ul:not([hidden]) {
+header nav > ul:not([hidden]) {
   display: flex;
   flex-direction: column;
 }
 
-header nav>ul>li>a,
-header nav>ul>li>button {
+header nav > ul > li > a,
+header nav > ul > li > button {
   display: block;
   width: 100%;
   padding: 0.75rem 2rem;
@@ -183,23 +201,23 @@ header nav>ul>li>button {
 }
 
 /* Hover feedback voor menu-items */
-header nav>ul>li>a:hover,
-header nav>ul>li>button:hover {
+header nav > ul > li > a:hover,
+header nav > ul > li > button:hover {
   background: var(--muted);
 }
 
-header nav>ul>li>a {
+header nav > ul > li > a {
   text-decoration: none;
   border-bottom: 0.0625rem solid var(--border);
 }
 
-header nav>ul>li>button {
+header nav > ul > li > button {
   font-weight: 600;
   border-bottom: 0.0625rem solid var(--border);
 }
 
-/* CTA link */
-header nav>ul>li:last-of-type>a {
+/* CTA link (nu vast via data-cta, niet meer last-of-type) */
+header nav > ul > li > a[data-cta] {
   width: calc(100% - 4rem);
   margin: 0.5rem 2rem 0;
   padding: 0.5rem 1rem;
@@ -209,20 +227,34 @@ header nav>ul>li:last-of-type>a {
   text-align: center;
 }
 
+/* Zoekveld in menu laten matchen met je andere inputs */
+header nav > ul > li form[role="search"] {
+  padding: 0.75rem 2rem;
+}
+
+header nav > ul input[type="search"] {
+  width: 100%;
+  padding: 0.7rem;
+  border: 0.0625rem solid var(--border);
+  font-size: 1rem;
+  background: var(--surface);
+  color: var(--text);
+}
+
 /* -------------------------------
      HERO
   --------------------------------- */
-main>section:first-of-type {
+main > section:first-of-type {
   position: relative;
 }
 
-main>section:first-of-type>img {
+main > section:first-of-type > img {
   width: 100%;
   height: 28rem;
   object-fit: cover;
 }
 
-main>section:first-of-type::after {
+main > section:first-of-type::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -230,7 +262,7 @@ main>section:first-of-type::after {
   background: linear-gradient(to right, rgba(0, 0, 0, 1), transparent);
 }
 
-main>section:first-of-type>h1 {
+main > section:first-of-type > h1 {
   position: absolute;
   left: 2rem;
   color: #ffffff;
@@ -245,11 +277,11 @@ main>section:first-of-type>h1 {
 /* -------------------------------
      INTRO
   --------------------------------- */
-main>section:nth-of-type(2) {
+main > section:nth-of-type(2) {
   padding: 2rem 1.5rem;
 }
 
-main>section:nth-of-type(2)>h2 {
+main > section:nth-of-type(2) > h2 {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -259,11 +291,11 @@ main>section:nth-of-type(2)>h2 {
   white-space: nowrap;
 }
 
-main>section:nth-of-type(2)>p:first-of-type {
+main > section:nth-of-type(2) > p:first-of-type {
   font-weight: bold;
 }
 
-main>section:nth-of-type(2)>p {
+main > section:nth-of-type(2) > p {
   margin-bottom: 1.2rem;
   font-size: 1.1rem;
 }
@@ -271,46 +303,39 @@ main>section:nth-of-type(2)>p {
 /* -------------------------------
      FOTO SECTIE
   --------------------------------- */
-main>section:nth-of-type(4) {
+main > section:nth-of-type(4) {
   padding: 2rem 1.5rem;
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
 }
 
-main>section:nth-of-type(4)>h2 {
+main > section:nth-of-type(4) > h2 {
   font-size: 1.4rem;
 }
 
 /* FOTO KAARTEN: caption boven, foto + overlay overlappen */
-main>section:nth-of-type(4) figure {
+main > section:nth-of-type(4) figure {
   display: grid;
   grid-template-columns: 1fr;
-  /* 👈 belangrijk: maar 1 kolom */
   grid-template-rows: auto 1fr;
   gap: 0.5rem;
 }
 
-/* foto in rij 2, kolom 1 */
-main>section:nth-of-type(4) figure img {
+main > section:nth-of-type(4) figure img {
   grid-column: 1;
-  /* 👈 zelfde kolom als overlay */
   grid-row: 2;
   width: 100%;
   height: auto;
   display: block;
 }
 
-/* overlay in exact dezelfde cel als de foto */
-main>section:nth-of-type(4) figure::after {
+main > section:nth-of-type(4) figure::after {
   content: "Lees meer";
   grid-column: 1;
-  /* zelfde kolom */
   grid-row: 2;
-  /* zelfde rij */
 
   place-self: stretch;
-  /* vult hele foto-cel */
   background: rgba(0, 0, 0, 0.6);
   color: #fff;
   font-weight: 700;
@@ -325,22 +350,21 @@ main>section:nth-of-type(4) figure::after {
   pointer-events: none;
 }
 
-main>section:nth-of-type(4) figure:hover::after {
+main > section:nth-of-type(4) figure:hover::after {
   opacity: 1;
 }
 
-/* underline ook als je over de foto hovert */
-main>section:nth-of-type(4) figure:hover figcaption::after {
+main > section:nth-of-type(4) figure:hover figcaption::after {
   width: 40%;
 }
 
-main>section:nth-of-type(4) figcaption {
+main > section:nth-of-type(4) figcaption {
   font-weight: bold;
   position: relative;
   padding-bottom: 0.3rem;
 }
 
-main>section:nth-of-type(4) figcaption::after {
+main > section:nth-of-type(4) figcaption::after {
   content: "";
   position: absolute;
   left: 0;
@@ -350,57 +374,57 @@ main>section:nth-of-type(4) figcaption::after {
   transition: width 0.3s ease;
 }
 
-main>section:nth-of-type(4) figcaption:hover::after {
+main > section:nth-of-type(4) figcaption:hover::after {
   width: 40%;
 }
 
-main>section:nth-of-type(4)>figure:nth-of-type(1)>figcaption::after {
+main > section:nth-of-type(4) > figure:nth-of-type(1) > figcaption::after {
   background-color: #e63946;
 }
 
-main>section:nth-of-type(4)>figure:nth-of-type(2)>figcaption::after {
+main > section:nth-of-type(4) > figure:nth-of-type(2) > figcaption::after {
   background-color: #2a9d8f;
 }
 
-main>section:nth-of-type(4)>figure:nth-of-type(3)>figcaption::after {
+main > section:nth-of-type(4) > figure:nth-of-type(3) > figcaption::after {
   background-color: #f4a261;
 }
 
 /* -------------------------------
    NIEUWSBRIEF SECTION (MOBIEL)
 --------------------------------- */
-main>section:nth-of-type(5) {
+main > section:nth-of-type(5) {
   padding: 2rem 1.5rem;
   background: var(--form-bg);
 }
 
-main>section:nth-of-type(5)>h2 {
+main > section:nth-of-type(5) > h2 {
   font-size: 1.6rem;
   margin-bottom: 1rem;
   color: var(--form-text);
 }
 
-main>section:nth-of-type(5)>form {
+main > section:nth-of-type(5) > form {
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
 }
 
-main>section:nth-of-type(5)>form>label {
+main > section:nth-of-type(5) > form > label {
   display: flex;
   flex-direction: column;
   font-weight: 600;
   color: var(--form-text);
 }
 
-main>section:nth-of-type(5)>form>label>input {
+main > section:nth-of-type(5) > form > label > input {
   width: 100%;
   padding: 0.7rem;
   border: 0.0625rem solid var(--form-border);
   font-size: 1rem;
 }
 
-main>section:nth-of-type(5)>form>button {
+main > section:nth-of-type(5) > form > button {
   width: 100%;
   padding: 0.8rem 1rem;
   font-size: 1rem;
@@ -410,29 +434,20 @@ main>section:nth-of-type(5)>form>button {
   cursor: pointer;
 }
 
-main>section:nth-of-type(5)>form>button:hover {
+main > section:nth-of-type(5) > form > button:hover {
   background: var(--form-button-hover);
 }
 
 /* ----------------------------
-     FOOTER (MOBIEL)
-  -------------------------------- */
-
-  /* ----------------------------
    FOOTER (MOBIEL)
 -------------------------------- */
-
 footer {
   background-color: var(--footer-bg);
   color: var(--footer-text);
   padding: 3rem 1.5rem;
-
-  /* BELANGRIJK:
-     Geen grid-centering met max-width,
-     zodat footer exact dezelfde uitlijning heeft als main (padding only). */
 }
 
-/* reset margins zodat we spacing zelf bepalen */
+/* reset margins zodat spacing zelf bepalen */
 footer figure,
 footer h2,
 footer p,
@@ -499,6 +514,7 @@ footer address a {
   color: #cccccc;
   text-decoration: none;
 }
+
 footer address a:hover {
   text-decoration: underline;
 }
@@ -513,6 +529,15 @@ footer nav a {
   text-decoration: none;
   font-weight: normal;
 }
+
 footer nav a:hover {
   text-decoration: underline;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
 }

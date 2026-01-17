@@ -7,12 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>DDA – Over ons</title>
 
-    <!-- 1) gedeelde styles -->
     <link rel="stylesheet" href="styles/Base.css" />
-    <!-- 2) pagina-specifieke styles -->
     <link rel="stylesheet" href="styles/Overons.css" />
 
-    <link rel="icon" type="image/svg+xml" href="images/Dutch_Logo.png" />
+    <link rel="icon" type="image/png" href="images/Dutch_Logo.png" />
 </head>
 
 <body>
@@ -28,8 +26,8 @@
                 &#9776;
             </button>
 
-            <!-- Hamburger menu -->
-            <ul hidden>
+            <!-- Hamburger menu (GEEN hidden in HTML i.v.m. progressive enhancement) -->
+            <ul>
                 <li>
                     <button type="button" aria-label="Thema wisselen" aria-pressed="false" data-theme-toggle>
                         Licht / donker thema
@@ -37,12 +35,18 @@
                 </li>
 
                 <li><a href="index.html">Wat is</a></li>
-                <li><a href="Cijfers">Cijfers</a></li>
-                <li><a href="Posities">Posities</a></li>
-                <li><a href="Nieuws">Nieuws</a></li>
-                <li><a href="Publicaties">Publicaties</a></li>
-                <li><a href="Overons.html">Over ons</a></li>
-                <li><a href="Deelnemer worden">Deelnemer worden</a></li>
+                <li><a href="index.html">Cijfers</a></li>
+                <li><a href="index.html">Posities</a></li>
+                <li><a href="index.html">Nieuws</a></li>
+                <li><a href="index.html">Publicaties</a></li>
+                <li><a href="index.html">Over ons</a></li>
+                <li>
+                    <form role="search" aria-label="Zoeken op de website">
+                        <input type="search" name="q" placeholder="Zoeken…" aria-label="Zoeken op de website" />
+                    </form>
+                </li>
+                <!-- CTA blijft CTA, ook als er items onder komen -->
+                <li><a href="index.html" data-cta>Deelnemer worden</a></li>
             </ul>
         </nav>
     </header>
@@ -203,9 +207,9 @@
         <h2>Menu</h2>
         <nav aria-label="Footer menu">
             <ul>
-                <li><a href="nieuws.html">Nieuws</a></li>
-                <li><a href="agenda.html">Agenda</a></li>
-                <li><a href="overons.html">Over ons</a></li>
+                <li><a href="index.html">Nieuws</a></li>
+                <li><a href="index.html">Agenda</a></li>
+                <li><a href="index.html">Over ons</a></li>
             </ul>
         </nav>
     </footer>

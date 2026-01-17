@@ -12,7 +12,7 @@
   <!-- 2) pagina-specifieke styles -->
   <link rel="stylesheet" href="styles/Watis.css" />
 
-  <link rel="icon" type="image/svg+xml" href="images/Dutch_Logo.png" />
+  <link rel="icon" type="image/png" href="images/Dutch_Logo.png" />
 </head>
 
 <body>
@@ -37,12 +37,18 @@
         </li>
 
         <li><a href="Overons.html">Wat is</a></li>
-        <li><a href="Cijfers">Cijfers</a></li>
-        <li><a href="Posities">Posities</a></li>
-        <li><a href="Nieuws">Nieuws</a></li>
-        <li><a href="Publicaties">Publicaties</a></li>
+        <li><a href="Overons.html">Cijfers</a></li>
+        <li><a href="Overons.html">Posities</a></li>
+        <li><a href="Overons.html">Nieuws</a></li>
+        <li><a href="Overons.html">Publicaties</a></li>
         <li><a href="Overons.html">Over ons</a></li>
-        <li><a href="Deelnemer worden">Deelnemer worden</a></li>
+        <li>
+          <form role="search" aria-label="Zoeken op de website">
+            <input type="search" name="q" placeholder="Zoeken…" aria-label="Zoeken op de website" />
+          </form>
+        </li>
+        <!-- CTA blijft CTA, ook als er items onder komen -->
+        <li><a href="Overons.html" data-cta>Deelnemer worden</a></li>
       </ul>
     </nav>
   </header>
@@ -221,13 +227,12 @@
     <h2>Menu</h2>
     <nav aria-label="Footer menu">
       <ul>
-        <li><a href="nieuws.html">Nieuws</a></li>
-        <li><a href="agenda.html">Agenda</a></li>
-        <li><a href="overons.html">Over ons</a></li>
+        <li><a href="Overons.html">Nieuws</a></li>
+        <li><a href="Overons.html">Agenda</a></li>
+        <li><a href="Overons.html">Over ons</a></li>
       </ul>
     </nav>
   </footer>
-
 
   <script src="scripts/script.js"></script>
 </body>
