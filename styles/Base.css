@@ -1,27 +1,48 @@
-/* -------------------------------
+/* =========================================================
    THEMA (CUSTOM PROPERTIES)
-   - Standaard: light
-   - Dark alleen via body[data-theme="dark"]
---------------------------------- */
+   Waarom:
+   - Alle kleuren centraal beheren
+   - Light en dark theme zonder dubbele CSS
+   - Consistente styling over alle componenten
+========================================================= */
 :root {
   --bg: #ffffff;
+  /* algemene pagina-achtergrond */
   --text: #222222;
+  /* standaard tekstkleur */
   --surface: #ffffff;
+  /* oppervlakken zoals header/menu */
   --muted: #ECF2F6;
+  /* subtiele achtergrond (hover, FAQ) */
   --border: #dddddd;
+  /* randen en scheidingslijnen */
   --brand: #0078ff;
+  /* primaire accentkleur */
 
   --footer-bg: #000000;
+  /* footer achtergrond */
   --footer-text: #ffffff;
+  /* footer tekstkleur */
+  --footer-link: #cccccc;
+  /* footer links */
 
   --form-bg: #003366;
+  /* nieuwsbrief sectie achtergrond */
   --form-text: #ffffff;
+  /* formulier tekst */
   --form-border: #cccccc;
+  /* input rand */
   --form-button-bg: #0ed228;
+  /* submitknop */
   --form-button-hover: #005fcc;
 }
 
-/* Dark mode */
+/* Dark mode
+   Waarom:
+   - Zelfde layout en componenten
+   - Alleen variabelen worden overschreven
+   - ALS theme dark wordt door Js
+*/
 body[data-theme="dark"] {
   --bg: #0f1115;
   --text: #e8e8e8;
@@ -32,6 +53,7 @@ body[data-theme="dark"] {
 
   --footer-bg: #000000;
   --footer-text: #ffffff;
+  --footer-link: #cccccc;
 
   --form-bg: #06244a;
   --form-text: #ffffff;
@@ -40,35 +62,48 @@ body[data-theme="dark"] {
   --form-button-hover: #0aa4ff;
 }
 
-/* -------------------------------
-     ALGEMEEN
-  --------------------------------- */
+/* =========================================================
+   ALGEMEEN
+   Waarom:
+   - Voorspelbaar gedrag in alle browsers
+   - Toegankelijkheid als basis
+========================================================= */
+
+/* Reset browser defaults */
 * {
-  margin: 0;
+  margin: 0; /* voorkomt onverwachte witruimte */
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box; /* padding telt mee in elementbreedte */
 }
 
+/* Basis typografie en kleuren */
 body {
-  font-family: system-ui, sans-serif;
-  line-height: 1.6;
-  color: var(--text);
-  background: var(--bg);
+  font-family: system-ui, sans-serif; /* native OS-font */
+  line-height: 1.6; /* betere leesbaarheid */
+  color: var(--text); /* thema-tekstkleur */
+  background: var(--bg); /* thema-achtergrond */
 }
 
-/* Website-state: menu open */
+/* Scroll blokkeren bij open mobiel menu
+   Waarom:
+   - Voorkomt dat de pagina achter het menu kan scrollen
+   - Zorgt dat het menu als één duidelijke “open” staat wordt ervaren
+   - Verbetert gebruikservaring op mobiel
+   - Ondersteunt toegankelijkheid door focus op het menu te houden
+*/
 body[data-menu-open] {
   overflow: hidden;
 }
 
-/* media veilig */
+/* Afbeeldingen altijd responsief */
 img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+  max-width: 100%; /* nooit buiten container */
+  height: auto;/* behoudt verhouding */
+  display: block; /* verwijdert inline whitespace */
 }
 
-/* focus (toegankelijkheid) */
+/* Duidelijke focus states voor toetsenbordgebruikers
+   WCAG toegankelijkheid - MET TAB */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
@@ -77,29 +112,19 @@ textarea:focus-visible {
   outline-offset: 0.2rem;
 }
 
-/* Visually hidden label (voor zoekveld in menu) */
-[data-sr-only] {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
-  border: 0;
-}
+/* =========================================================
+   FORM VALIDATIE
+   Waarom:
+   - Directe visuele feedback
+   - Alleen bij actieve interactie
+========================================================= */
 
-/* -------------------------------
-   FORM VALIDATION STATES (VALID/INVALID)
-   - alleen voor required velden (anders wordt search meteen "valid")
---------------------------------- */
-
-/* Alleen feedback geven als gebruiker iets heeft ingevuld */
+/* Ongeldig veld tijdens focus */
 input[required]:focus:invalid {
   border: 2px solid red;
 }
 
+/* Geldig veld tijdens focus */
 input[required]:focus:valid {
   border: 2px solid green;
 }
@@ -107,154 +132,155 @@ input[required]:focus:valid {
 /* -------------------------------
      HEADER + NAVIGATIE
   --------------------------------- */
-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: var(--surface);
-}
+  header {
+    position: sticky; /* header “plakt” aan de bovenkant bij scrollen */
+    top: 0; /* plakken gebeurt vanaf de bovenrand van het scherm */
+    z-index: 1000; /* zorgt dat header boven andere elementen blijft */
+    background: var(--surface); /* achtergrondkleur uit thema-variabele */
+  }
+  
+  header nav {
+    display: flex; /* zet kinderen (logo, knop) op 1 rij */
+    justify-content: space-between; /* duwt eerste kind links en laatste rechts */
+    align-items: center; /* centreert items verticaal */
+    gap: 0.75rem; /* ruimte tussen flex-items */
+    padding: 1rem 1.5rem; /* binnenruimte rondom de nav */
+    position: relative; /* maakt nav het anker voor absoluut gepositioneerde ul */
+  }
+  
+  header nav>a img {
+    width: 9.375rem; /* vaste breedte voor het logo */
+    margin-top: 0.5rem; /* kleine verschuiving naar beneden */
+  }
+  
+  header nav>button {
+    background: none; /* geen standaard knop-achtergrond */
+    border: none; /* geen standaard rand */
+    cursor: pointer; /* handje cursor → klikbaar */
+    width: 3rem; /* vaste klik/touch-ruimte */
+    height: 3rem; /* vaste klik/touch-ruimte */
+    display: flex; /* maakt centeren van het icoon makkelijk */
+    align-items: center; /* centreert icoon verticaal */
+    justify-content: center; /* centreert icoon horizontaal */
+    font-size: 0; /* verbergt eventuele tekst in de knop */
+    padding: 0; /* haalt standaard padding weg */
+  }
+  
+  header nav>button::before {
+    content: "☰"; /* zet hamburger-icoon als content */
+    width: 2rem; /* breedte van het “icoon-vak” */
+    height: 2rem; /* hoogte van het “icoon-vak” */
+    display: flex; /* zodat het icoon wordt gecentreert */
+    align-items: center; /* centreert het teken verticaal */
+    justify-content: center; /* centreert het teken horizontaal */
+    font-size: 2rem; /* grootte van het hamburger teken */
+    line-height: 1; /* voorkomt dat het teken optisch verschuift */
+    color: var(--text); /* kleur volgt thema-tekstkleur */
+    transform: translateX(0.70rem); /* schuift icoon iets naar rechts voor balans */
+  }
+  
+  header nav>button[aria-expanded="true"]::before {
+    content: "✕"; /* vervangt hamburger door kruisje als menu open is */
+    font-size: 1.6rem; /* kruisje iets kleiner voor betere optische balans */
+  }
+  
+  /* mobiel menu */
+  header nav>ul {
+    position: absolute; /* haalt menu uit normale flow → overlay dropdown */
+    top: 100%; /* plaatst menu direct onder de navbalk */
+    left: 0; /* begint links uitgelijnd met nav */
+    width: 100%; /* menu vult de volledige breedte */
+    background: var(--surface); /* achtergrondkleur uit thema */
+    border-top: 0.0625rem solid var(--border); /* lijn tussen nav en menu */
+    list-style: none; /* verwijdert bullets */
+    padding: 0.5rem 0; /* ruimte boven/onder menu-items */
+  }
+  
+  header nav>ul[hidden] {
+    display: none; /* als hidden attribuut aanwezig is: menu niet tonen */
+  }
+  
+  header nav>ul:not([hidden]) {
+    display: flex; /* als menu open is: maak er flex van */
+    flex-direction: column; /* menu-items onder elkaar */
+  }
+  
+  header nav>ul>li>a,
+  header nav>ul>li>button {
+    display: block; /* maakt hele rij klikbaar */
+    width: 100%; /* vult hele breedte van het menu */
+    padding: 0.75rem 2rem; /* grote touch target + nette inspringing */
+    text-align: left; /* tekst links uitlijnen (ook voor button) */
+    font-size: 1rem; /* standaard leesbare grootte */
+    background: none; /* geen standaard knop/anker achtergrond */
+    border: none; /* geen standaard button border */
+    color: var(--text); /* tekstkleur volgt thema */
+    cursor: pointer; /* ook bij button voelt het klikbaar */
+  }
+  
+  /* Hover feedback voor menu-items */
+  header nav>ul>li>a:hover,
+  header nav>ul>li>button:hover {
+    background: var(--muted); /* subtiele achtergrond bij hover */
+  }
+  
+  header nav>ul>li>a {
+    text-decoration: none; /* haalt underline weg voor menu-look */
+    border-bottom: 0.0625rem solid var(--border); /* scheidingslijn tussen items */
+  }
+  
+  header nav>ul>li>button {
+    font-weight: 600; /* maakt knop (thema toggle) wat opvallender */
+    border-bottom: 0.0625rem solid var(--border); /* zelfde scheidingslijn als links */
+  }
+  
+  /* CTA link (nu vast via data-cta, niet meer last-of-type) */
+  header nav>ul>li>a[data-cta] {
+    width: calc(100% - 4rem); /* volle breedte min 2rem links + 2rem rechts / voorkomt dat het element met marges te breed wordt.*/
+    margin: 0.5rem 2rem 0; /* spacing rondom CTA + uitlijning met menu padding */
+    padding: 0.5rem 1rem; /* binnenruimte zodat het knop-achtig voelt */
+    border: 0.125rem solid var(--brand); /* duidelijke rand in merk-kleur */
+    border-radius: 0.4rem; /* afgeronde hoeken */
+    font-weight: bold; /* extra nadruk */
+    text-align: center; /* tekst in het midden */
+  }
+  
+  /* Zoekveld in menu laten matchen met andere inputs
+   - De form heeft role="search" zodat screenreaders weten:
+     "dit is een zoekgebied"
+   - De input heeft type="search" zodat de browser weet:
+     "hier typ je een zoekopdracht"
+*/
 
-header nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 1rem 1.5rem;
-  position: relative;
-}
-
-header nav > a img {
-  width: 9.375rem;
-  margin-top: 0.5rem;
-}
-
-header nav > button {
-  background: none;
-  border: none;
-  cursor: pointer;
-
-  width: 3rem;
-  height: 3rem;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  font-size: 0;
-  padding: 0;
-}
-
-header nav > button::before {
-  content: "☰";
-
-  width: 2rem;
-  height: 2rem;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  font-size: 2rem;
-  line-height: 1;
-  color: var(--text);
-
-  transform: translateX(0.70rem);
-}
-
-header nav > button[aria-expanded="true"]::before {
-  content: "✕";
-  font-size: 1.6rem;
-}
-
-/* mobiel menu */
-header nav > ul {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  background: var(--surface);
-  border-top: 0.0625rem solid var(--border);
-  list-style: none;
-  padding: 0.5rem 0;
-}
-
-header nav > ul[hidden] {
-  display: none;
-}
-
-header nav > ul:not([hidden]) {
-  display: flex;
-  flex-direction: column;
-}
-
-header nav > ul > li > a,
-header nav > ul > li > button {
-  display: block;
-  width: 100%;
-  padding: 0.75rem 2rem;
-  text-align: left;
-  font-size: 1rem;
-  background: none;
-  border: none;
-  color: var(--text);
-  cursor: pointer;
-}
-
-/* Hover feedback voor menu-items */
-header nav > ul > li > a:hover,
-header nav > ul > li > button:hover {
-  background: var(--muted);
-}
-
-header nav > ul > li > a {
-  text-decoration: none;
-  border-bottom: 0.0625rem solid var(--border);
-}
-
-header nav > ul > li > button {
-  font-weight: 600;
-  border-bottom: 0.0625rem solid var(--border);
-}
-
-/* CTA link (nu vast via data-cta, niet meer last-of-type) */
-header nav > ul > li > a[data-cta] {
-  width: calc(100% - 4rem);
-  margin: 0.5rem 2rem 0;
-  padding: 0.5rem 1rem;
-  border: 0.125rem solid var(--brand);
-  border-radius: 0.4rem;
-  font-weight: bold;
-  text-align: center;
-}
-
-/* Zoekveld in menu laten matchen met je andere inputs */
+/* Styling van het zoekformulier (het blok waarin gezocht wordt) */
 header nav > ul > li form[role="search"] {
-  padding: 0.75rem 2rem;
+  padding: 0.75rem 2rem; /* zelfde inspringing als andere menu-items */
 }
 
+/* Styling van het zoekveld zelf (waar je de tekst intypt) */
 header nav > ul input[type="search"] {
-  width: 100%;
-  padding: 0.7rem;
-  border: 0.0625rem solid var(--border);
-  font-size: 1rem;
-  background: var(--surface);
-  color: var(--text);
+  width: 100%; /* zoekveld vult de beschikbare breedte */
+  padding: 0.7rem; /* extra ruimte zodat klikken en typen makkelijk is */
+  border: 0.0625rem solid var(--border); /* dunne rand die past bij het thema */
+  font-size: 1rem; /* zelfde tekstgrootte als menu-items */
+  background: var(--surface); /* achtergrondkleur passend bij header/menu */
+  color: var(--text); /* tekstkleur volgt light/dark theme */
 }
 
 /* -------------------------------
      HERO
   --------------------------------- */
-main > section:first-of-type {
+main>section:first-of-type {
   position: relative;
 }
 
-main > section:first-of-type > img {
+main>section:first-of-type>img {
   width: 100%;
   height: 28rem;
-  object-fit: cover;
+  object-fit: cover; /* zodat een afbeelding het vak volledig vult, zonder te vervormen */
 }
 
-main > section:first-of-type::after {
+main>section:first-of-type::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -262,7 +288,7 @@ main > section:first-of-type::after {
   background: linear-gradient(to right, rgba(0, 0, 0, 1), transparent);
 }
 
-main > section:first-of-type > h1 {
+main>section:first-of-type>h1 {
   position: absolute;
   left: 2rem;
   color: #ffffff;
@@ -277,94 +303,118 @@ main > section:first-of-type > h1 {
 /* -------------------------------
      INTRO
   --------------------------------- */
-main > section:nth-of-type(2) {
+main>section:nth-of-type(2) {
   padding: 2rem 1.5rem;
 }
 
-main > section:nth-of-type(2) > h2 {
+main>section:nth-of-type(2)>h2 {
   position: absolute;
   width: 1px;
   height: 1px;
   margin: -1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
+  overflow: hidden; /* Alles wat buiten de doos steekt, verstoppen.*/
+  clip: rect(0 0 0 0); /* alles wegknipt met een schaar / hierdoor kunnen screenreaders het nog lezen */
+  white-space: nowrap; /* Zet de tekst niet op meerdere regels/ zegt dit tegen browser*/
 }
 
-main > section:nth-of-type(2) > p:first-of-type {
+main>section:nth-of-type(2)>p:first-of-type {
   font-weight: bold;
 }
 
-main > section:nth-of-type(2) > p {
+main>section:nth-of-type(2)>p {
   margin-bottom: 0.7rem;
   font-size: 1.1rem;
 }
 
 /* -------------------------------
      FOTO SECTIE
-  --------------------------------- */
-main > section:nth-of-type(4) {
+--------------------------------- */
+main>section:nth-of-type(4) {
   padding: 2rem 1.5rem;
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
 }
 
-main > section:nth-of-type(4) > h2 {
+main>section:nth-of-type(4)>h2 {
   font-size: 1.4rem;
 }
 
-/* FOTO KAARTEN: caption boven, foto + overlay overlappen */
-main > section:nth-of-type(4) figure {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto 1fr;
+/* kaart */
+main>section:nth-of-type(4) figure {
+  display: grid;/* Grid vult eerst de kolommen, daarna pas een nieuwe rij.*/
+  grid-template-columns: 1fr; /* Alles komt in één kolom in de hele breedte, onder elkaar */
+  grid-template-rows: auto auto auto;
+  /* caption / image-link / tekstlink */
   gap: 0.5rem;
 }
 
-main > section:nth-of-type(4) figure img {
+/* caption boven */
+main>section:nth-of-type(4) figure>figcaption {
   grid-column: 1;
-  grid-row: 2;
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-main > section:nth-of-type(4) figure::after {
-  content: "Lees meer";
-  grid-column: 1;
-  grid-row: 2;
-
-  place-self: stretch;
-  background: rgba(0, 0, 0, 0.6);
-  color: #fff;
-  font-weight: 700;
-  font-size: 1.2rem;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-}
-
-main > section:nth-of-type(4) figure:hover::after {
-  opacity: 1;
-}
-
-main > section:nth-of-type(4) figure:hover figcaption::after {
-  width: 40%;
-}
-
-main > section:nth-of-type(4) figcaption {
+  grid-row: 1;
   font-weight: bold;
   position: relative;
   padding-bottom: 0.3rem;
 }
 
-main > section:nth-of-type(4) figcaption::after {
+/*image-link = klikbare afbeelding (bepaalt de vorm) */
+main > section:nth-of-type(4) figure > a:first-of-type {
+  grid-column: 1;
+  grid-row: 2;
+  position: relative;
+  display: block;
+  width: 100%;          /* nodig zodat aspect-ratio kan werken */
+  aspect-ratio: 3 / 2; /* alle kaart-afbeeldingen dezelfde verhouding */
+}
+
+/* img vult de link */
+main > section:nth-of-type(4) figure > a:first-of-type > img {
+  width: 100%; /* pak exact de breedte én hoogte van je ouder (<a>) */
+  height: 100%;
+  object-fit: cover;    /* snijdt bij i.p.v. vervormen */
+  display: block;
+}
+
+/* overlay op de image-link (dus klikbaar) */
+main>section:nth-of-type(4) figure>a:first-of-type::after {
+  content: "Lees meer";
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.2rem;
+
+  opacity: 0; /* De overlay bestaat, maar is altijd onzichtbaar. */
+  transition: opacity 0.3s ease;
+}
+
+/* hover/focus toont overlay */
+main>section:nth-of-type(4) figure>a:first-of-type:hover::after,
+main>section:nth-of-type(4) figure>a:first-of-type:focus-visible::after {
+  opacity: 1; /* Opacity gaat van 0 naar 1 */
+}
+
+/* tekstlink onder de afbeelding */
+main>section:nth-of-type(4) figure>a:last-of-type {
+  grid-column: 1;
+  grid-row: 3;
+  display: inline-block;
+  margin-top: 0.25rem;
+  font-weight: 500;
+  color: var(--brand);
+  font-size: 0.95rem;
+  text-decoration: underline;
+}
+
+/* underline animatie bij caption / kleur lijntjes */
+main>section:nth-of-type(4) figcaption::after {
   content: "";
   position: absolute;
   left: 0;
@@ -374,57 +424,57 @@ main > section:nth-of-type(4) figcaption::after {
   transition: width 0.3s ease;
 }
 
-main > section:nth-of-type(4) figcaption:hover::after {
+main>section:nth-of-type(4) figure:hover figcaption::after {
   width: 40%;
 }
 
-main > section:nth-of-type(4) > figure:nth-of-type(1) > figcaption::after {
+main>section:nth-of-type(4)>figure:nth-of-type(1)>figcaption::after {
   background-color: #e63946;
 }
 
-main > section:nth-of-type(4) > figure:nth-of-type(2) > figcaption::after {
+main>section:nth-of-type(4)>figure:nth-of-type(2)>figcaption::after {
   background-color: #2a9d8f;
 }
 
-main > section:nth-of-type(4) > figure:nth-of-type(3) > figcaption::after {
+main>section:nth-of-type(4)>figure:nth-of-type(3)>figcaption::after {
   background-color: #f4a261;
 }
 
 /* -------------------------------
    NIEUWSBRIEF SECTION (MOBIEL)
 --------------------------------- */
-main > section:nth-of-type(5) {
+main>section:nth-of-type(5) {
   padding: 2rem 1.5rem;
   background: var(--form-bg);
 }
 
-main > section:nth-of-type(5) > h2 {
+main>section:nth-of-type(5)>h2 {
   font-size: 1.6rem;
   margin-bottom: 1rem;
   color: var(--form-text);
 }
 
-main > section:nth-of-type(5) > form {
+main>section:nth-of-type(5)>form { /* Maakt het formulier zelf een flex-container */
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
 }
 
-main > section:nth-of-type(5) > form > label {
+main>section:nth-of-type(5)>form>label {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* zet labeltekst en inputveld onder elkaar */
   font-weight: 600;
   color: var(--form-text);
 }
 
-main > section:nth-of-type(5) > form > label > input {
+main>section:nth-of-type(5)>form>label>input {
   width: 100%;
   padding: 0.7rem;
   border: 0.0625rem solid var(--form-border);
   font-size: 1rem;
 }
 
-main > section:nth-of-type(5) > form > button {
+main>section:nth-of-type(5)>form>button {
   width: 100%;
   padding: 0.8rem 1rem;
   font-size: 1rem;
@@ -434,7 +484,7 @@ main > section:nth-of-type(5) > form > button {
   cursor: pointer;
 }
 
-main > section:nth-of-type(5) > form > button:hover {
+main>section:nth-of-type(5)>form>button:hover {
   background: var(--form-button-hover);
 }
 
@@ -447,7 +497,7 @@ footer {
   padding: 3rem 1.5rem;
 }
 
-/* reset margins zodat spacing zelf bepalen */
+/* reset margins zodat spacing zelf bepalen / Ik bepaal zelf ALLE spacing */
 footer figure,
 footer h2,
 footer p,
@@ -469,38 +519,38 @@ footer figure img {
   display: block;
 }
 
-/* basis spacing tussen blokken */
-footer > * + * {
+/* basis spacing tussen blokken Alle footer-blokken behalve de eerste krijgen extra ruimte erboven.*/
+footer>*+* {
   margin-top: 1rem;
 }
 
 /* extra ruimte direct NA het logo */
-footer figure + * {
+footer figure+* {
   margin-top: 1.3rem;
 }
 
 /* extra ruimte tussen secties (naar een nieuw kopje) */
-footer p + h2,
-footer ul + h2,
-footer address + h2,
-footer nav + h2 {
+footer p+h2,
+footer ul+h2,
+footer address+h2,
+footer nav+h2 {
   margin-top: 2rem;
 }
 
 /* kopje hoort dichter bij de content eronder */
-footer h2 + p,
-footer h2 + address,
-footer h2 + nav {
+footer h2+p,
+footer h2+address,
+footer h2+nav {
   margin-top: 0.5rem;
 }
 
 /* Proud member of -> lijst */
-footer > p + ul {
+footer>p+ul {
   margin-top: 0.75rem;
 }
 
 /* Contact regels onder elkaar */
-footer address p + p {
+footer address p+p {
   margin-top: 0.5rem;
 }
 
@@ -511,7 +561,7 @@ footer h2 {
 
 /* links */
 footer address a {
-  color: #cccccc;
+  color: var(--footer-link);
   text-decoration: none;
 }
 
@@ -520,7 +570,7 @@ footer address a:hover {
 }
 
 /* menu */
-footer nav li + li {
+footer nav li+li {
   margin-top: 0.25rem;
 }
 

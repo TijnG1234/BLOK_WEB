@@ -74,8 +74,6 @@ main > section:first-of-type > h1 {
     width: 100%;
     padding: 0.85rem;
     border: 0.0625rem solid var(--border);
-   
-    font: inherit;
     background: var(--surface);
     color: var(--text);
   }
@@ -90,7 +88,7 @@ main > section:first-of-type > h1 {
     border: none;
     background: var(--brand);
     color: #ffffff;
-    font-weight: 700;
+    font-weight: 500;
     cursor: pointer;
   }
   

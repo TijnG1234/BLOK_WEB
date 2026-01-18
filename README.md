@@ -271,14 +271,72 @@ student 4	Eindcontrole
 ## Bronnenlijst
 
 <details open>
-  <summary>continu bijhouden terwijl je werkt</summary>
+  <summary>continu bijgehouden terwijl je werkt</summary>
 
-  Nb. Wees specifiek ('css-tricks' als bron is bijv. niet specifiek genoeg). 
-  Nb. ChatGpT en andere AI horen er ook bij.
-  Nb. Vermeld de bronnen ook in je code.
+  <p>
+    Tijdens het maken van deze website heb ik verschillende bronnen gebruikt
+    om keuzes te onderbouwen en problemen op te lossen. Hieronder een overzicht
+    van de belangrijkste bronnen die ik heb geraadpleegd.
+  </p>
 
-  1. bron 1
-  2. bron 2
-  3. ...
+  <ol>
+    <li>
+      <strong>MDN Web Docs – HTML & Accessibility</strong><br>
+      Gebruikt voor uitleg over semantische HTML-elementen, het gebruik van
+      <code>&lt;nav&gt;</code>, <code>&lt;section&gt;</code>,
+      <code>&lt;button&gt;</code> en ARIA-attributen zoals
+      <code>aria-expanded</code> en <code>aria-pressed</code>.<br>
+      https://developer.mozilla.org/
+    </li>
+
+    <li>
+      <strong>MDN Web Docs – CSS Selectors & Pseudo-classes</strong><br>
+      Gebruikt voor het toepassen van CSS selectors zoals
+      <code>:nth-of-type()</code>, <code>:focus-visible</code>,
+      <code>:valid</code> en <code>:invalid</code> voor form-validatie en
+      toegankelijkheid.<br>
+      https://developer.mozilla.org/en-US/docs/Web/CSS
+    </li>
+
+ <li>
+      <strong>MDN Web Docs – HTML <code>&lt;details&gt;</code> & FAQ UX</strong><br>
+      Deze pagina gebruikt de semantische <code>&lt;details&gt;</code> /
+      <code>&lt;summary&gt;</code> HTML-elementen als voorbeeld voor
+      toegankelijke FAQ-widgets, wat mij heeft geïnspireerd bij het zelf
+      bouwen van de FAQ-accordeon met JavaScript en ARIA.<br>
+      https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/details
+    </li>
+
+    <li>
+      <strong>CSS-Tricks – A Complete Guide to Flexbox & Grid</strong><br>
+      Gebruikt om layoutproblemen op te lossen, met name bij het uitlijnen van
+      navigatie-items en het centreren van content in de footer met CSS Grid.<br>
+      https://css-tricks.com/snippets/css/a-guide-to-flexbox/<br>
+      https://css-tricks.com/snippets/css/complete-guide-grid/
+    
+    </li>
+
+    <li>
+      <strong>WCAG / W3C – Web Content Accessibility Guidelines</strong><br>
+      Gebruikt om te controleren of interactieve onderdelen zoals het
+      hamburger-menu, zoekfunctie en formulieren toegankelijk zijn voor
+      toetsenbord- en screenreadergebruikers.<br>
+      https://www.w3.org/WAI/standards-guidelines/wcag/
+    </li>
+
+    <li>
+      <strong>FED colleges & opdrachten (HvA)</strong><br>
+      De uitleg en feedback uit de Frontend Development lessen zijn gebruikt
+      voor keuzes rondom progressive enhancement, surface plane-interacties,
+      toegankelijkheid en het werken zonder classes of frameworks.
+    </li>
+
+    <li>
+      <strong>ChatGPT (OpenAI)</strong><br>
+      Gebruikt als hulp bij het begrijpen en herschrijven van JavaScript-logica,
+      het verbeteren van ARIA-toepassingen, het structureren van CSS zonder
+      classes en het controleren of de uitwerking voldoet aan de FED-opdracht.
+    </li>
+  </ol>
 
 </details>
