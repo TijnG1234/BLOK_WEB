@@ -91,28 +91,22 @@ Contact: https://www.dutchdatacenters.nl/over-ons/contact/
 <details>
   <summary>uitwerken na afloop 3<sup>e</sup> werkgroep</summary>
 
-  <details>
-  <summary>Pagina 1 — WAT is - breakdowns</summary>
+  ### Pagina 1: 
+  <img src="readme-images/breakdowns.jpg" width="375px" alt="breakdown van de hele pagina">
 
-  ### de hele pagina (small-screen / one-column):
-  <img src="readme-images/breakdowns.jpg" width="375px" alt="Breakdown van pagina 1: header, main, footer en belangrijkste secties">
+  ### dynamisch deel (Accordeon / nav/menu): 
+  <img src="readme-images/breakdowns2.jpg" width="375px" alt="breakdown van een dynamisch deel">
 
-  ### dynamisch deel (bijv. accordion / header/nav):
-  <img src="readme-images/breakdowns2.jpg" width="375px" alt="Breakdown van pagina 1: dynamisch onderdeel met HTML-structuur en content">
-</details>
+  --------
+
+  ### Pagina 1: 
+  <img src="readme-images/breakdowns3.jpg" width="375px" alt="breakdown van de hele pagina">
+
+  ### dynamisch deel (Form / figures - figcaption): 
+  <img src="readme-images/breakdowns4.jpg" width="375px" alt="breakdown van een dynamisch deel">
 
 
-<details>
-  <summary>uitwerken na afloop 3<sup>e</sup> werkgroep</summary>
 
-  <details>
-  <summary>Pagina 2 - OVER ONS — breakdowns</summary>
-
-  ### de hele pagina (small-screen / one-column):
-  <img src="readme-images/breakdowns3.jpg" width="375px" alt="Breakdown van pagina 1: header, main, footer en belangrijkste secties">
-
-  ### dynamisch deel (bijv. Form / figures):
-  <img src="readme-images/breakdowns4.jpg" width="375px" alt="Breakdown van pagina 1: dynamisch onderdeel met HTML-structuur en content">
 </details>
 
 
