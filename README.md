@@ -259,7 +259,24 @@ student 4	Eindcontrole
 
 
   ### Dit was lastig/Is niet gelukt:
-  Korte omschrijving met plaatjes
+
+
+------------------------------------------------
+<strong>5 Onderwerpen:</strong>
+1. Custom themes (bijv. licht/donker) ✅
+* script.js: theme toggle + localStorage
+* Base.css: body[data-theme="dark"] { ... }
+2. Prefers-reduced-motion ✅
+* Base.css: @media (prefers-reduced-motion: reduce) { ... }
+3. Animaties (loading/nadruk/feedback/branding...) ✅
+* In je CSS staan transitions/animatie-achtige feedback (o.a. bij hover/FAQ pijl via summary::after in Watis.css).
+4. States van controls++ (forms/inputs/links...) ✅
+* Base.css: :focus-visible styling voor o.a. a, button, input, textarea
+* in je HTML/JS: aria-pressed (theme) en aria-expanded (menu) veranderen mee met state
+5. Interactie met toetsenbord++ (shortcuts, escape...) ✅
+* script.js: Escape sluit menu (keydown)
+
+
 
   <img src="readme-images/dummy-plaatje.jpg" width="375px" alt="bummer">
 </details>
