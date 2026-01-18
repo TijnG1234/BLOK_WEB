@@ -91,15 +91,28 @@ Contact: https://www.dutchdatacenters.nl/over-ons/contact/
 <details>
   <summary>uitwerken na afloop 3<sup>e</sup> werkgroep</summary>
 
-  ### de hele pagina: 
-  <img src="readme-images/dummy-plaatje.jpg" width="375px" alt="breakdown van de hele pagina">
+  <details>
+  <summary>Pagina 1 — WAT is - breakdowns</summary>
 
-  ### dynamisch deel (bijv menu): 
-  <img src="readme-images/dummy-plaatje.jpg" width="375px" alt="breakdown van een dynamisch deel">
+  ### de hele pagina (small-screen / one-column):
+  <img src="readme-images/breakdowns.jpg" width="375px" alt="Breakdown van pagina 1: header, main, footer en belangrijkste secties">
 
-  ### wellicht nog een dynamisch deel (bijv filter): 
-  <img src="readme-images/dummy-plaatje.jpg" width="375px" alt="breakdown van nog een dynamisch deel">
+  ### dynamisch deel (bijv. accordion / header/nav):
+  <img src="readme-images/breakdowns2.jpg" width="375px" alt="Breakdown van pagina 1: dynamisch onderdeel met HTML-structuur en content">
+</details>
 
+
+<details>
+  <summary>uitwerken na afloop 3<sup>e</sup> werkgroep</summary>
+
+  <details>
+  <summary>Pagina 2 - OVER ONS — breakdowns</summary>
+
+  ### de hele pagina (small-screen / one-column):
+  <img src="readme-images/breakdowns3.jpg" width="375px" alt="Breakdown van pagina 1: header, main, footer en belangrijkste secties">
+
+  ### dynamisch deel (bijv. Form / figures):
+  <img src="readme-images/breakdowns4.jpg" width="375px" alt="Breakdown van pagina 1: dynamisch onderdeel met HTML-structuur en content">
 </details>
 
 
@@ -306,15 +319,6 @@ student 4	Eindcontrole
       https://developer.mozilla.org/
     </li>
 
-    <li>
-      <strong>MDN Web Docs – CSS Selectors & Pseudo-classes</strong><br>
-      Gebruikt voor het toepassen van CSS selectors zoals
-      <code>:nth-of-type()</code>, <code>:focus-visible</code>,
-      <code>:valid</code> en <code>:invalid</code> voor form-validatie en
-      toegankelijkheid.<br>
-      https://developer.mozilla.org/en-US/docs/Web/CSS
-    </li>
-
  <li>
       <strong>MDN Web Docs – HTML <code>&lt;details&gt;</code> & FAQ UX</strong><br>
       Deze pagina gebruikt de semantische <code>&lt;details&gt;</code> /
@@ -323,16 +327,31 @@ student 4	Eindcontrole
       bouwen van de FAQ-accordeon met JavaScript en ARIA.<br>
       https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/details
     </li>
+</ol>
 
+<ol>
+    <li>
+      <strong>MDN Web Docs – CSS Selectors & Pseudo-classes</strong><br>
+      Gebruikt voor het toepassen van CSS selectors zoals
+      <code>:nth-of-type()</code>, <code>:focus-visible</code>,
+      <code>:valid</code> en <code>:invalid</code> voor form-validatie en
+      toegankelijkheid.<br>
+      https://developer.mozilla.org/en-US/docs/Web/CSS
+    </li>
+</ol>
+
+<ol>
     <li>
       <strong>CSS-Tricks – A Complete Guide to Flexbox & Grid</strong><br>
       Gebruikt om layoutproblemen op te lossen, met name bij het uitlijnen van
       navigatie-items en het centreren van content in de footer met CSS Grid.<br>
       https://css-tricks.com/snippets/css/a-guide-to-flexbox/<br>
       https://css-tricks.com/snippets/css/complete-guide-grid/
-    
-    </li>
+     </li>
+</ol>
 
+
+<ol>
     <li>
       <strong>WCAG / W3C – Web Content Accessibility Guidelines</strong><br>
       Gebruikt om te controleren of interactieve onderdelen zoals het
@@ -340,14 +359,18 @@ student 4	Eindcontrole
       toetsenbord- en screenreadergebruikers.<br>
       https://www.w3.org/WAI/standards-guidelines/wcag/
     </li>
+    </ol>
 
+<ol>
     <li>
       <strong>FED colleges & opdrachten (HvA)</strong><br>
       De uitleg en feedback uit de Frontend Development lessen zijn gebruikt
       voor keuzes rondom progressive enhancement, surface plane-interacties,
       toegankelijkheid en het werken zonder classes of frameworks.
     </li>
+ </ol>
 
+ <ol>
     <li>
       <strong>ChatGPT (OpenAI)</strong><br>
       Gebruikt als hulp bij het begrijpen en herschrijven van JavaScript-logica,
