@@ -36,7 +36,7 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   <summary>uitwerken voor kick-off werkgroep</summary>
 
   ### Je opdracht:
-Belangen: https://www.dutchdatacenters.nl/datacenters/wat-is-economisch-belang-datacenters/
+Wat is economisch belang: https://www.dutchdatacenters.nl/datacenters/wat-is-economisch-belang-datacenters/
 
 
 Contact: https://www.dutchdatacenters.nl/over-ons/contact/
@@ -180,26 +180,40 @@ student 4	Accessibility
 
 
 
-
-
 ## Toegankelijkheidstest 2/2 (week 4)
 
 <details> <summary>uitwerken na test in 9<sup>e</sup> werkgroep</summary>
 Bevindingen
 
-- Tijdens de tweede toegankelijkheidstest is de website getest met toetsenbordnavigatie, met JavaScript uitgeschakeld en door vergelijking met de originele website.
+Bevindingen – Tweede toegankelijkheidstest
 
-- Het hamburgermenu was bedienbaar, maar de open/dicht-status was niet duidelijk voor screenreaders. Dit is opgelost door aria-expanded toe te voegen en het menu volledig met toetsenbord te laten werken (inclusief sluiten met Escape).
+## Screenreader
 
-- Bij het testen zonder JavaScript bleek dat sommige content verborgen was. Dit is aangepast door hidden niet meer in de HTML te gebruiken, maar alleen via JavaScript toe te passen, zodat alle content zichtbaar blijft zonder JS.
+Bij het testen met een screenreader bleek dat de structuur van de website duidelijker is geworden dan tijdens de eerste test. Door het gebruik van semantische HTML-elementen, juiste headings en ARIA-attributen kan de screenreader de content beter interpreteren.
 
-- De FAQ werkte visueel goed, maar was nog niet volledig toegankelijk. Door aria-expanded toe te voegen en de content via hidden te tonen/verbergen is de FAQ nu ook bruikbaar met toetsenbord en screenreader.
+Het hamburgermenu was in eerste instantie wel bedienbaar, maar de open- en dichtstatus was niet duidelijk voor screenreaders. Dit heb ik opgelost door aria-expanded toe te voegen aan de menuknop. Hierdoor wordt nu correct aangekondigd of het menu open of gesloten is. Daarnaast is het menu volledig met het toetsenbord te bedienen en kan het ook worden gesloten met de Escape-toets.
 
-- -Sommige headings waren visueel storend maar wel nodig voor de structuur. Deze zijn semantisch behouden en visueel verborgen met CSS.
+De FAQ-sectie werkte visueel al goed, maar was nog niet volledig toegankelijk. Door gebruik te maken van aria-expanded en het hidden-attribuut is de FAQ nu ook goed bruikbaar met screenreader en toetsenbord. De screenreader leest nu alleen de relevante content voor en geeft duidelijk aan wanneer een onderdeel is geopend of gesloten.
 
-- Animaties bleken mogelijk hinderlijk voor sommige gebruikers. Daarom is ondersteuning voor prefers-reduced-motion toegevoegd.
+Sommige headings waren visueel storend, maar wel nodig voor de structuur van de pagina. Deze headings zijn semantisch behouden en visueel verborgen met CSS, zodat de screenreader de juiste documentstructuur blijft herkennen.
 
-- Bij vergelijking met de originele website viel op dat het fade-in navigatiemenu de volledige pagina overneemt en lastig te sluiten is. In mijn uitwerking is daarom gekozen voor een simpeler menu met meerdere sluitopties, wat de toegankelijkheid vergroot. Huidige originele website fade-in nav menu vont ik te massaal en neemt gelijk de hele pagina in, ook niet makkelijk en snelle optie om er weer uit te kunnen behalve een heel klein kruisje boven, maar niet de optie om weer op de pagina zelf te klikken aangezien die verborgen is onder het hele menu. Dus je kan ook niet echt makkelijk terug, ik zelf vond dit minder toegankelijk en heb daarom gekozen voor een simpeler menu die de gebruiker ook nog de optie geeft om weer op de pagina zelf ter kunnen klikken makkelijk als hij de nav weer wil sluiten en zo geef je de gebruiker makkelijk meerdere optie inplaats van een klein kruisje boven aan de pagina.
+## Muis en Toetsenbord
+
+De website is volledig te bedienen met het toetsenbord. Alle interactieve elementen zijn bereikbaar via de Tab-toets en hebben een duidelijke focus-stijl, waardoor zichtbaar is welk element actief is. Het hamburgermenu kan worden geopend en gesloten met het toetsenbord, en links in het menu zijn logisch geordend in de tabvolgorde.
+
+Ook zonder JavaScript blijft de website bruikbaar. Tijdens het testen zonder JavaScript bleek dat sommige content verborgen was. Dit is aangepast door het hidden-attribuut niet meer standaard in de HTML te gebruiken, maar alleen via JavaScript toe te passen. Hierdoor blijft alle content zichtbaar wanneer JavaScript is uitgeschakeld, wat zorgt voor progressive enhancement.
+
+## Motoriek (shocks, elastiekjes)
+
+Tijdens de tweede test heb ik opnieuw gekeken naar het gebruik van de website met beperkte motoriek. Door het vereenvoudigen van het navigatiemenu en het gebruik van grotere klikbare gebieden is de website beter te bedienen voor gebruikers die moeite hebben met precieze handelingen.
+
+In tegenstelling tot de originele website, waar het fade-in menu de volledige pagina overneemt en alleen met een klein kruisje kan worden gesloten, biedt mijn menu meerdere manieren om te sluiten: met Escape, door buiten het menu te klikken of door een link te selecteren. Dit vermindert de noodzaak voor fijne motoriek en geeft de gebruiker meer controle.
+
+## Visueel (brillen, contrast, kleurenblind, dark/light)
+
+Bij de tweede toegankelijkheidstest is extra aandacht besteed aan visuele toegankelijkheid. Door het implementeren van een light- en dark-theme kunnen gebruikers zelf kiezen welk contrast het prettigst is. Beide thema’s hebben voldoende contrast tussen tekst en achtergrond, waardoor de content goed leesbaar blijft voor gebruikers met verminderd zicht of kleurenblindheid.
+
+De lay-out is rustig gehouden met duidelijke secties, consistente headings en voldoende witruimte. Daarnaast is visuele feedback toegevoegd bij formulieren met :valid en :invalid, zodat gebruikers direct kunnen zien of invoer correct is. Animaties zijn beperkt en er is ondersteuning toegevoegd voor prefers-reduced-motion, zodat gebruikers die gevoelig zijn voor beweging hier geen hinder van ondervinden.
 
 </details>
 
