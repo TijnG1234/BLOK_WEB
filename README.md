@@ -91,7 +91,7 @@ Contact: https://www.dutchdatacenters.nl/over-ons/contact/
 <details>
   <summary>uitwerken na afloop 3<sup>e</sup> werkgroep</summary>
 
-  ### Pagina 1: 
+  ### Pagina 1 - wat is: 
   <img src="readme-images/breakdowns.jpg" width="375px" alt="breakdown van de hele pagina">
 
   ### dynamisch deel (Accordeon / nav/menu): 
@@ -99,13 +99,11 @@ Contact: https://www.dutchdatacenters.nl/over-ons/contact/
 
   --------
 
-  ### Pagina 1: 
+  ### Pagina 2 - over ons: 
   <img src="readme-images/breakdowns3.jpg" width="375px" alt="breakdown van de hele pagina">
 
   ### dynamisch deel (Form / figures - figcaption): 
   <img src="readme-images/breakdowns4.jpg" width="375px" alt="breakdown van een dynamisch deel">
-
-
 
 </details>
 
@@ -256,38 +254,92 @@ student 4	Eindcontrole
   <summary>uitwerken voor eindgesprek</summary>
 
   ### Je uitkomst - karakteristiek screenshots:
-  <img src="readme-images/dummy-plaatje.jpg" width="375px" alt="uitomst opdracht 1">
+  <img src="readme-images/Over_ons.png" width="375px" alt="uitomst opdracht 1">
+  <img src="readme-images/Wat_is_Pagina.png" width="375px" alt="uitomst opdracht 1">
 
 
   ### Dit ging goed/Heb ik geleerd: 
-  Korte omschrijving met plaatjes
+Ik heb geleerd hoe ik een website mobile-first opbouw en hoe HTML en CSS samenwerken om een pagina stap voor stap “zoals het origineel” te krijgen. Ik heb mijn HTML ook semantischer gemaakt (header/nav/main/section/figure/form/footer) en ik ben minder “op classes gaan leunen” door vooral selectors te gebruiken (zoals nth-of-type en combinators). Daardoor snap ik nu beter waarom iets gestyled wordt, in plaats van alleen dat het werkt.
 
-  <img src="readme-images/dummy-plaatje.jpg" width="375px" alt="top">
+Daarnaast heb ik echt winst gemaakt op toegankelijkheid:
+- Ik heb zichtbare focus toegevoegd (:focus-visible) zodat toetsenbordgebruikers kunnen zien waar ze zijn.
 
+- Mijn hamburgermenu werkt toegankelijker met aria-expanded + hidden, en kan ook sluiten met Escape en door   klik buiten het menu.
+
+- Ik heb form feedback toegevoegd met :valid en :invalid.
+
+- Ik heb rekening gehouden met gebruikers die minder animatie willen via prefers-reduced-motion.
+
+- Voor de FAQ heb ik geleerd dat je óf zelf een accordeon bouwt met button + aria, óf dat je met details summary een super nette, ingebouwde (en vaak makkelijker uit te leggen) oplossing hebt.
+
+  
 
   ### Dit was lastig/Is niet gelukt:
+Ik vond het lastig om zonder classes te werken en toch overzicht te houden in mijn CSS. Het gebruik van nth-of-type werkt, maar is ook kwetsbaar: kleine wijzigingen in de HTML kunnen veel CSS breken.
 
+Ook het uitlijnen van elementen (zoals de navigatie, footer en afbeeldingen) kostte veel tijd. Kleine CSS-aanpassingen hadden soms onverwachte gevolgen, vooral bij schalen van het scherm.
+
+Daarnaast vond ik JavaScript het lastigste onderdeel:
+
+- Het was moeilijk om goed te begrijpen wat er wanneer gebeurt (bijvoorbeeld bij het openen en sluiten van het menu).
+
+- Ik moest leren nadenken in logica en states (open / dicht) in plaats van alleen in visueel gedrag.
+
+- Het combineren van JavaScript met toegankelijkheid (zoals aria-expanded) was in het begin verwarrend.
+
+- Ik merkte dat kleine fouten in JS (zoals een selector die niet klopt) meteen grote gevolgen hebben, wat soms frustrerend was.
+
+- Uiteindelijk snap ik mijn JavaScript nu beter dan aan het begin, maar het blijft het onderdeel waar ik het meest moet nadenken en waar ik het minst automatisch in ben
 
 ------------------------------------------------
-<strong>5 Onderwerpen:</strong>
-1. Custom themes (bijv. licht/donker) ✅
-* script.js: theme toggle + localStorage
-* Base.css: body[data-theme="dark"] { ... }
-2. Prefers-reduced-motion ✅
-* Base.css: @media (prefers-reduced-motion: reduce) { ... }
-3. Animaties (loading/nadruk/feedback/branding...) ✅
-* In je CSS staan transitions/animatie-achtige feedback (o.a. bij hover/FAQ pijl via summary::after in Watis.css).
-4. States van controls++ (forms/inputs/links...) ✅
-* Base.css: :focus-visible styling voor o.a. a, button, input, textarea
-* in je HTML/JS: aria-pressed (theme) en aria-expanded (menu) veranderen mee met state
-5. Interactie met toetsenbord++ (shortcuts, escape...) ✅
-* script.js: Escape sluit menu (keydown)
-
-
-
-  <img src="readme-images/dummy-plaatje.jpg" width="375px" alt="bummer">
+<strong>5-9 Onderwerpen:</strong>
+1. Custom themes
+Light / dark theme met data-theme.
+Keuze wordt onthouden met localStorage.
+Thema-toggle is toegankelijk met aria-pressed.
+Combinatie van JavaScript en CSS custom properties.
+2. Micro-interacties (JS)
+Hamburger menu openen en sluiten.
+Sluiten via Escape.
+Sluiten bij klik buiten menu.
+Sluiten bij klik op link.
+Thema-toggle geeft feedback via tekst en state.
+Volwaardige micro-interacties geïmplementeerd met JavaScript.
+3. Interactie met het toetsenbord++
+Escape sluit het menu.
+Focus blijft logisch door gebruik van native HTML en JavaScript.
+Geen key-traps aanwezig.
+Correcte keyboard-support.
+4. States van controls++
+Gebruik van aria-expanded.
+Gebruik van aria-pressed.
+Gebruik van het hidden attribute.
+Correcte state-afhandeling voor UI-controls.
+5. States van de website als geheel
+Gebruik van data-menu-open op (body) .
+Gebruik van data-theme="light|dark".
+Duidelijke UI-stack en globale states.
+6. Custom properties++
+CSS-variabelen gebruikt voor theming.
+Variabelen dynamisch aangepast via JavaScript.
+Custom properties ingezet voor meer dan alleen kleur.
+7. DOM-manipulatie
+Gebruik van querySelector.
+Gebruik van setAttribute.
+Gebruik van toggleAttribute.
+Gebruik van event listeners.
+Gecontroleerd DOM-gebruik.
+8. Progressive enhancement
+Menu blijft functioneel zonder JavaScript.
+Hamburgerknop verschijnt alleen wanneer JavaScript beschikbaar is.
+JavaScript versterkt de ervaring in plaats van de HTML te breken.
+9. Toegankelijkheid++
+ARIA correct toegepast.
+Volledige keyboard-support.
+Geen gebruik van div-buttons.
+Semantische HTML.
+Toegankelijkheid boven gemiddeld niveau.
 </details>
-
 
 
 
